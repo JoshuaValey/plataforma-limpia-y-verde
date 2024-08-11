@@ -1,0 +1,146 @@
+# Query: flutter1_test
+# ContextLines: 1
+
+41 resultados - Archivos de 17
+
+pubspec.yaml:
+  1: name: plataforma_limpia_y_verde
+  2  description: "A new Flutter project."
+
+README.md:
+  1: # plataforma_limpia_y_verde
+  2  
+
+android/app/build.gradle:
+  26  android {
+  27:     namespace = "com.example.plataforma_limpia_y_verde"
+  28      compileSdk = flutter.compileSdkVersion
+
+  37          // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+  38:         applicationId = "com.example.plataforma_limpia_y_verde"
+  39          // You can update the following values to match your application needs.
+
+android/app/src/main/AndroidManifest.xml:
+  2      <application
+  3:         android:label="plataforma_limpia_y_verde"
+  4          android:name="${applicationName}"
+
+android/app/src/main/kotlin/com/example/plataforma_limpia_y_verde/MainActivity.kt:
+  1: package com.example.plataforma_limpia_y_verde
+  2  
+
+ios/Runner/Info.plist:
+  15  	<key>CFBundleName</key>
+  16: 	<string>plataforma_limpia_y_verde</string>
+  17  	<key>CFBundlePackageType</key>
+
+lib/main.dart:
+  1  import 'package:flutter/material.dart';
+  2: import 'package:plataforma_limpia_y_verde/presentation/screens/asisitencia_screen.dart';
+  3: import 'package:plataforma_limpia_y_verde/presentation/screens/login_screen.dart';
+  4: import 'package:plataforma_limpia_y_verde/presentation/screens/main_screen.dart';
+  5: import 'package:plataforma_limpia_y_verde/presentation/screens/proyectos_screen.dart';
+  6  
+
+linux/CMakeLists.txt:
+   6  # the on-disk name of your application.
+   7: set(BINARY_NAME "plataforma_limpia_y_verde")
+   8  # The unique GTK application identifier for this application. See:
+   9  # https://wiki.gnome.org/HowDoI/ChooseApplicationID
+  10: set(APPLICATION_ID "com.example.plataforma_limpia_y_verde")
+  11  
+
+linux/my_application.cc:
+  42      gtk_widget_show(GTK_WIDGET(header_bar));
+  43:     gtk_header_bar_set_title(header_bar, "plataforma_limpia_y_verde");
+  44      gtk_header_bar_set_show_close_button(header_bar, TRUE);
+
+  46    } else {
+  47:     gtk_window_set_title(window, "plataforma_limpia_y_verde");
+  48    }
+
+macos/Runner/Configs/AppInfo.xcconfig:
+  7  // The application's name. By default this is also the title of the Flutter window.
+  8: PRODUCT_NAME = plataforma_limpia_y_verde
+  9  
+
+macos/Runner.xcodeproj/project.pbxproj:
+   66  		335BBD1A22A9A15E00E9071D /* GeneratedPluginRegistrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedPluginRegistrant.swift; sourceTree = "<group>"; };
+   67: 		33CC10ED2044A3C60003C045 /* plataforma_limpia_y_verde.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "plataforma_limpia_y_verde.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+   68  		33CC10F02044A3C60003C045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+
+  133  			children = (
+  134: 				33CC10ED2044A3C60003C045 /* plataforma_limpia_y_verde.app */,
+  135  				331C80D5294CF71000263BE5 /* RunnerTests.xctest */,
+
+  219  			productName = Runner;
+  220: 			productReference = 33CC10ED2044A3C60003C045 /* plataforma_limpia_y_verde.app */;
+  221  			productType = "com.apple.product-type.application";
+
+  390  				SWIFT_VERSION = 5.0;
+  391: 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plataforma_limpia_y_verde.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/plataforma_limpia_y_verde";
+  392  			};
+
+  404  				SWIFT_VERSION = 5.0;
+  405: 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plataforma_limpia_y_verde.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/plataforma_limpia_y_verde";
+  406  			};
+
+  418  				SWIFT_VERSION = 5.0;
+  419: 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plataforma_limpia_y_verde.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/plataforma_limpia_y_verde";
+  420  			};
+
+macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme:
+  17                 BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+  18:                BuildableName = "plataforma_limpia_y_verde.app"
+  19                 BlueprintName = "Runner"
+
+  33              BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+  34:             BuildableName = "plataforma_limpia_y_verde.app"
+  35              BlueprintName = "Runner"
+
+  67              BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+  68:             BuildableName = "plataforma_limpia_y_verde.app"
+  69              BlueprintName = "Runner"
+
+  84              BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+  85:             BuildableName = "plataforma_limpia_y_verde.app"
+  86              BlueprintName = "Runner"
+
+web/index.html:
+  25    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  26:   <meta name="apple-mobile-web-app-title" content="plataforma_limpia_y_verde">
+  27    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  31  
+  32:   <title>plataforma_limpia_y_verde</title>
+  33    <link rel="manifest" href="manifest.json">
+
+web/manifest.json:
+  1  {
+  2:     "name": "plataforma_limpia_y_verde",
+  3:     "short_name": "plataforma_limpia_y_verde",
+  4      "start_url": ".",
+
+windows/CMakeLists.txt:
+  2  cmake_minimum_required(VERSION 3.14)
+  3: project(plataforma_limpia_y_verde LANGUAGES CXX)
+  4  
+
+  6  # the on-disk name of your application.
+  7: set(BINARY_NAME "plataforma_limpia_y_verde")
+  8  
+
+windows/runner/main.cpp:
+  29    Win32Window::Size size(1280, 720);
+  30:   if (!window.Create(L"plataforma_limpia_y_verde", origin, size)) {
+  31      return EXIT_FAILURE;
+
+windows/runner/Runner.rc:
+  92              VALUE "CompanyName", "com.example" "\0"
+  93:             VALUE "FileDescription", "plataforma_limpia_y_verde" "\0"
+  94              VALUE "FileVersion", VERSION_AS_STRING "\0"
+  95:             VALUE "InternalName", "plataforma_limpia_y_verde" "\0"
+  96              VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+  97:             VALUE "OriginalFilename", "plataforma_limpia_y_verde.exe" "\0"
+  98:             VALUE "ProductName", "plataforma_limpia_y_verde" "\0"
+  99              VALUE "ProductVersion", VERSION_AS_STRING "\0"

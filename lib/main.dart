@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter1_test/presentation/screens/asisitencia_screen.dart';
-import 'package:flutter1_test/presentation/screens/login_screen.dart';
-import 'package:flutter1_test/presentation/screens/main_screen.dart';
-import 'package:flutter1_test/presentation/screens/proyectos_screen.dart';
+import 'package:plataforma_limpia_y_verde/presentation/screens/asisitencia_screen.dart';
+import 'package:plataforma_limpia_y_verde/presentation/screens/login_screen.dart';
+import 'package:plataforma_limpia_y_verde/presentation/screens/main_screen.dart';
+import 'package:plataforma_limpia_y_verde/presentation/screens/proyectos_screen.dart';
 
 void main() => runApp(const MyApp());
 
