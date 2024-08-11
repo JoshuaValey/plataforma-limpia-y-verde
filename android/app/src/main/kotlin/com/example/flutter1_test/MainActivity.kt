@@ -1,4 +1,4 @@
-package com.example.plataforma_limpia_y_verde
+package com.example.flutter1_test
 
 import io.flutter.embedding.android.FlutterActivity
 
