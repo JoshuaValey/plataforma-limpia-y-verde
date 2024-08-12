@@ -49,11 +49,9 @@ class ProyectosScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                
+                  backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                   
                   ),
                   padding: const EdgeInsets.symmetric(
                       horizontal: 32.0, vertical: 16.0),
@@ -73,51 +71,60 @@ class ProjectCard extends StatelessWidget {
   final String title;
   final String description;
 
-   const ProjectCard({required this.title, required this.description, super.key});
+  const ProjectCard(
+      {required this.title, required this.description, super.key});
 
-  @override
+    @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(description),
-                ],
-              ),
-            ),
-            Column(
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, '/detalle_proyecto_screen');
+        },
+        child: Card(
+          margin: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(
-                  icon: const Icon(Icons.menu),
-                  color: Colors.lime,
-                  onPressed: () {},
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(description),
+                    ],
+                  ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.edit),
-                  color: Colors.cyan,
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: const Icon(Icons.assistant),
-                  color: Colors.red,
-                  onPressed: () {},
+                Column(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.menu),
+                      color: Color.fromARGB(255, 57, 220, 95),
+                      onPressed: () {},
+                    ),
+                   /* IconButton(
+                      icon: const Icon(Icons.edit),
+                      color: Colors.cyan,
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.assistant),
+                      color: Colors.red,
+                      onPressed: () {},
+                    ),*/
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
