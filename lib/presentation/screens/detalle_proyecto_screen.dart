@@ -11,6 +11,15 @@ class DetalleProyectoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       floatingActionButton: FloatingActionButton(
+        
+        onPressed: () {
+          Navigator.pushNamed(context, '/main_screen');
+        },
+        backgroundColor: Colors.green,
+         shape: const CircleBorder(),
+        child: const Icon(Icons.home, color: Colors.white),
+      ),
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

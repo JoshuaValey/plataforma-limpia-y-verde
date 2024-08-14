@@ -14,7 +14,7 @@ class MainScreen extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 8,
             mainAxisSpacing: 8,
-            //physics: const NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: Singleton.instance.menuItems.map((element) {
               return CardMainMenu(
@@ -47,9 +47,7 @@ class CardMainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Container(
+    return Container(
         margin: EdgeInsets.symmetric(
             horizontal: horizontalMargin, vertical: verticalMargin),
         child: InkWell(
@@ -81,7 +79,6 @@ class CardMainMenu extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

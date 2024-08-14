@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class ProyectosScreen extends StatelessWidget {
   const ProyectosScreen({super.key});
@@ -6,6 +7,16 @@ class ProyectosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        
+        onPressed: () {
+          Navigator.pushNamed(context, '/main_screen');
+        },
+        backgroundColor: Colors.green,
+         shape: const CircleBorder(),
+        child: const Icon(Icons.home, color: Colors.white),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
         title: const Text('Proyectos'),
       ),
@@ -26,23 +37,13 @@ class ProyectosScreen extends StatelessWidget {
               const SizedBox(height: 16),
               Expanded(
                 child: ListView(
-                  children: const [
-                    ProjectCard(
-                      title: 'Nombre Proyecto 1',
-                      description:
-                          'Descripcion de un proyecto de prueba demostrativamente puede colocar direccion, detalles del proyecto, etc.',
-                    ),
-                    ProjectCard(
-                      title: 'Nombre Proyecto 2',
-                      description:
-                          'Descripcion de un proyecto de prueba demostrativamente puede colocar direccion, detalles del proyecto, etc.',
-                    ),
-                    ProjectCard(
-                      title: 'Nombre Proyecto 3',
-                      description:
-                          'Descripcion de un proyecto de prueba demostrativamente puede colocar direccion, detalles del proyecto, etc.',
-                    ),
-                  ],
+                  children: Singleton.instance.proyectos.map((element) {
+                    return ProjectCard(
+                      id: element['id'],
+                      nombre: element['nombre'],
+                      descripcion: element['descripcion'],
+                    );
+                  }).toList(),
                 ),
               ),
               const SizedBox(height: 16),
@@ -68,13 +69,17 @@ class ProyectosScreen extends StatelessWidget {
 }
 
 class ProjectCard extends StatelessWidget {
-  final String title;
-  final String description;
+  final String id;
+  final String nombre;
+  final String descripcion;
 
   const ProjectCard(
-      {required this.title, required this.description, super.key});
+      {required this.nombre,
+      required this.descripcion,
+      super.key,
+      required this.id});
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
@@ -94,12 +99,12 @@ class ProjectCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        nombre,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       const SizedBox(height: 8),
-                      Text(description),
+                      Text(descripcion),
                     ],
                   ),
                 ),
@@ -107,10 +112,14 @@ class ProjectCard extends StatelessWidget {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.menu),
-                      color: Color.fromARGB(255, 57, 220, 95),
-                      onPressed: () {},
+                      color: const Color.fromARGB(255, 57, 220, 95),
+                      onPressed: () {
+
+                        //navegar a la pantalla de asingaciones
+                        Navigator.pushNamed(context, '/asignaciones_screen');
+                      },
                     ),
-                   /* IconButton(
+                    /* IconButton(
                       icon: const Icon(Icons.edit),
                       color: Colors.cyan,
                       onPressed: () {},
