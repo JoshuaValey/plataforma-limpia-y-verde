@@ -90,3 +90,4 @@ class DetalleProyectoScreen extends StatelessWidget {
     );
   }
 }
+

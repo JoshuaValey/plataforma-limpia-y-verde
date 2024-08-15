@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class AsistenciaScreen extends StatefulWidget {
   const AsistenciaScreen({super.key});
@@ -28,12 +29,10 @@ class _AsistenciaScreenState extends State<AsistenciaScreen> {
           itemCount: 10,
           itemBuilder: (context, index) {
             return ListTile(
-              leading: const CircleAvatar(
-                backgroundImage: AssetImage('assets/user.png'),
-              ),
+              leading: const Icon(Icons.person),
               title: const Text('Nombre Usuario'),
               trailing: Checkbox(
-                value: _isChecked[index],
+                value:  _isChecked[index],
                 onChanged: (value) {
                   setState(() {
                     _isChecked[index] = value!;
