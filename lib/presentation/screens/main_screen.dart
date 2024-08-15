@@ -29,7 +29,6 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
-
 class CardMainMenu extends StatelessWidget {
   final String routeName; // Ruta a la que navegar
   final IconData iconData; // Ícono a mostrar
