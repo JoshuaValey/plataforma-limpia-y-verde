@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
 
 class Singleton {
   // Instancia única de la clase
@@ -23,6 +24,14 @@ class Singleton {
       'horizontalMargin': horizontalMarginLittleCards,
       'verticalMargin': verticalMarginLittleCards,
     },
+     {
+      'routeName': '/proyectos_screen',
+      'iconData': Icons.notification_important_outlined,
+      'label': 'Proyectos',
+      'horizontalMargin': horizontalMarginLittleCards,
+      'verticalMargin': verticalMarginLittleCards,
+    }
+   /* ,
     {
       'routeName': '/proyectos_screen',
       'iconData': Icons.person,
@@ -43,7 +52,7 @@ class Singleton {
       'label': 'Insumos',
       'horizontalMargin': horizontalMarginLittleCards,
       'verticalMargin': verticalMarginLittleCards,
-    }
+    }*/
   ];
 
 //*****************************************************************/
@@ -68,43 +77,24 @@ class Singleton {
 
 
 //*****************************************************************/
-  List<Map<String, dynamic>> proyectos = [
-    {
-      'id': '0',
-      'nombre': 'Proyecto 1',
-      'descripcion': 'Descripcion del proyecto 1',
-      'fechaInicio': '01/01/2021',
-      'fechaFin': '01/01/2022',
-      'empresa': 'Cosevisa',
-      'area-cobertura': 'Calle 1',
-    },
-    {
-      'id': '1',
-      'nombre': 'Proyecto 2',
-      'descripcion': 'Descripcion del proyecto 1',
-      'fechaInicio': '01/01/2021',
-      'fechaFin': '01/01/2022',
-      'empresa': 'Cosevisa 2',
-      'area-cobertura': 'Calle 1',
-    },
-    {
-      'id': '2',
-      'nombre': 'Proyecto 3',
-      'descripcion': 'Descripcion del proyecto 1',
-      'fechaInicio': '01/01/2021',
-      'fechaFin': '01/01/2022',
-      'empresa': 'Cosevisa 2',
-      'area-cobertura': 'Calle 1',
-    },
-    {
-      'id': '3',
-      'nombre': 'Proyecto 4',
-      'descripcion': 'Descripcion del proyecto 1',
-      'fechaInicio': '01/01/2021',
-      'fechaFin': '01/01/2022',
-      'empresa': 'Cosevisa 2',
-      'area-cobertura': 'Calle 1',
-    }
-  ];
   //------------------------------------------------------------------
+
+List<Proyecto> proyectos = [
+  Proyecto(id: 0, name: "Proyecto 1", descripcion: "Descripción del proyecto 1", areaCobertura: "Zona 1, desde 5ta Calle a 24 Calle", empresa: "COSEVISA", fechaInicio: DateTime(2024,8,1), fechaFin: DateTime(2024,8,31), vigente: true),
+  Proyecto(id: 1, name: "Proyecto 2", descripcion: "Descripción del proyecto 2", areaCobertura: "Zona 2, desde 1ra Avenida a 10ma Avenida", empresa: "SOLUCERSA", fechaInicio: DateTime(2024,9,1), fechaFin: DateTime(2024,9,30), vigente: true),
+
+Proyecto(id: 2, name: "Proyecto 3", descripcion: "Descripción del proyecto 3", areaCobertura: "Zona 3, desde 15 Avenida a 18 Avenida", empresa: "SERVIMANT", fechaInicio: DateTime(2024,10,1), fechaFin: DateTime(2024,10,31), vigente: true),
+
+Proyecto(id: 3, name: "Proyecto 4", descripcion: "Descripción del proyecto 4", areaCobertura: "Zona 4, desde 2da Calle a 8va Calle", empresa: "MANTENIMIENTOS GT", fechaInicio: DateTime(2024,11,1), fechaFin: DateTime(2024,11,30), vigente: true),
+
+Proyecto(id: 4, name: "Proyecto 5", descripcion: "Descripción del proyecto 5", areaCobertura: "Zona 5, desde 4ta Avenida a 12va Avenida", empresa: "PROSERVICIOS", fechaInicio: DateTime(2024,12,1), fechaFin: DateTime(2024,12,31), vigente: true),
+
+Proyecto(id: 5, name: "Proyecto 6", descripcion: "Descripción del proyecto 6", areaCobertura: "Zona 6, desde 9na Calle a 14 Calle", empresa: "MANTENIMIENTO TOTAL", fechaInicio: DateTime(2025,1,1), fechaFin: DateTime(2025,1,31), vigente: true),
+];
+
+
+
+
+
+
 }
