@@ -118,7 +118,7 @@ class ProjectCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, '/detalle_proyecto_screen');
+          Navigator.pushNamed(context, '/detalle_proyecto_screen', arguments: id);
         },
         child: Card(
           margin: const EdgeInsets.symmetric(vertical: 8.0),
@@ -147,21 +147,10 @@ class ProjectCard extends StatelessWidget {
                       icon: const Icon(Icons.menu),
                       color: const Color.fromARGB(255, 57, 220, 95),
                       onPressed: () {
-
                         //navegar a la pantalla de asingaciones
-                        Navigator.pushNamed(context, '/asignaciones_screen');
+                        Navigator.pushNamed(context, '/asignaciones_screen', arguments: id);
                       },
                     ),
-                    /* IconButton(
-                      icon: const Icon(Icons.edit),
-                      color: Colors.cyan,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.assistant),
-                      color: Colors.red,
-                      onPressed: () {},
-                    ),*/
                   ],
                 ),
               ],

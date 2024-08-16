@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/asignaciones_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/asisitencia_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/detalle_proyecto_screen.dart';
+import 'package:plataforma_limpia_y_verde/presentation/screens/insumos_id_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/login_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/main_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/proyectos_screen.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/asistencia_screen': (context) => const AsistenciaScreen(),
         '/detalle_proyecto_screen': (context) => const DetalleProyectoScreen(),
         '/asignaciones_screen': (context) => const AsignacionesScreen(),
+        '/insumos_id_screen' : (context) =>  const InsumosIdScreen(),
       },
       home: const LoginScreen(),
     );

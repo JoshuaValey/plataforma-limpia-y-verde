@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 
 
@@ -10,6 +11,8 @@ class DetalleProyectoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //argumentos de la ruta
+    final proyectoID = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
        floatingActionButton: FloatingActionButton(
         
@@ -43,20 +46,20 @@ class DetalleProyectoScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const SizedBox(height: 16),
-            _buildDetailField('Nombre', 'Barrial 4'),
+            _buildDetailField('Nombre', Singleton.instance.proyectos[proyectoID].name),
             const SizedBox(height: 16),
-            _buildDetailField('Área de cobertura', 'Zona 1, desde 5ta Calle a 24 Calle'),
+            _buildDetailField('Área de cobertura', Singleton.instance.proyectos[proyectoID].areaCobertura),
             const SizedBox(height: 16),
-            _buildDetailField('Empresa', 'COSEVISA'),
+            _buildDetailField('Empresa',  Singleton.instance.proyectos[proyectoID].empresa),
             const SizedBox(height: 16),
             Row(
               children: <Widget>[
                 Expanded(
-                  child: _buildDetailField('Fecha inicio', '04/08/2024'),
+                  child: _buildDetailField('Fecha inicio', Singleton.instance.proyectos[proyectoID].fechaInicio.toString()),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
-                  child: _buildDetailField('Fecha fin', '04/09/2024'),
+                  child: _buildDetailField('Fecha fin', Singleton.instance.proyectos[proyectoID].fechaFin.toString()),
                 ),
               ],
             ),

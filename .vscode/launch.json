@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "plataforma-limpia-y-verde",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "plataforma-limpia-y-verde (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "plataforma-limpia-y-verde (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Flutter-All",
+            "preLaunchTask": "Flutter-Launch-All",
+            "type": "dart"
+          },
+        {
+            "name": "Flutter-iOS",
+            "preLaunchTask": "Flutter-Launch-iOS",
+            "type": "dart"
+          },
+          {
+            "name": "Flutter-Android",
+            "preLaunchTask": "Flutter-Launch-Android",
+            "type": "dart"
+          }
+    ]
+}

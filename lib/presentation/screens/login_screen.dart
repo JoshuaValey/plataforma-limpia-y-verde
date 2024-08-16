@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 
 
@@ -52,6 +53,7 @@ class LoginScreen extends StatelessWidget {
                       //TODO: Implementar la lógica de autenticación
                     onPressed: () {
                       // navegar al main screen
+                      Singleton.instance.showToast('Bienvenido');
                       Navigator.pushNamed(context, '/main_screen');
                     },
                     child:const Text('Iniciar Sesión'),
