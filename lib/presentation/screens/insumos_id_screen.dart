@@ -30,6 +30,8 @@ class _InsumosIdScreenState extends State<InsumosIdScreen> {
           return GestureDetector(
             onTap: () {
               // Maneja el clic en todo el elemento de la lista
+              Navigator.pushNamed(context, '/insumos_id_detalle_screen',
+                  arguments: insumo);
               Singleton.instance.showToast(insumo.nombre);
             },
             child: ListTile(
@@ -40,8 +42,6 @@ class _InsumosIdScreenState extends State<InsumosIdScreen> {
                   // Maneja el cambio en el checkbox sin interferir con el clic del elemento
                   setState(() {
                     insumos[index].checked = value!;
-                          
-                          
                   });
                 },
               ),
