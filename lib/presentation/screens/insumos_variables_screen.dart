@@ -25,8 +25,7 @@ class _InsumosVariablesScreenState extends State<InsumosVariablesScreen> {
         itemCount: insumos.length,
         itemBuilder: (context, index) {
           final insumo = insumos[index];
-          return GestureDetector(
-            child: ListTile(
+          return ListTile(
               title: Text(insumo.nombre),
               subtitle: Text("Cantidad: ${insumo.cantidad}"),
               trailing: Checkbox(
@@ -38,7 +37,6 @@ class _InsumosVariablesScreenState extends State<InsumosVariablesScreen> {
                   });
                 },
               ),
-            ),
           );
         },
       ),
