@@ -1,11 +1,13 @@
 class InsumoVariable {
+  final int idProyecto;
   final String nombre;
   final int cantidad;
-  final bool checked;
+  bool checked;
   final String empresaProveedora;
   final DateTime fechaOtorgada;
 
   InsumoVariable({
+    required this.idProyecto,
     required this.nombre,
     required this.cantidad,
     required this.checked,
@@ -16,6 +18,7 @@ class InsumoVariable {
   // Método para crear una instancia de la clase a partir de un JSON
   factory InsumoVariable.fromJson(Map<String, dynamic> json) {
     return InsumoVariable(
+      idProyecto: json['Id_Proyecto'],
       nombre: json['Nombre'] as String,
       cantidad: json['Cantidad'] as int,
       checked: json['Checked'] as bool,
@@ -27,6 +30,7 @@ class InsumoVariable {
   // Método para convertir la instancia de la clase a JSON
   Map<String, dynamic> toJson() {
     return {
+      'Id_Proyecto': idProyecto,
       'Nombre': nombre,
       'Cantidad': cantidad,
       'Checked': checked,

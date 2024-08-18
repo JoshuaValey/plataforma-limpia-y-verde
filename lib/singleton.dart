@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variable.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
 
 class Singleton {
@@ -68,7 +69,7 @@ class Singleton {
       'verticalMargin': verticalMarginLittleCards,
     },
     {
-      'routeName': '/asistencia_screen',
+      'routeName': '/insumos_variables_screen',
       'iconData': Icons.inventory,
       'label': 'Insumos',
       'horizontalMargin': horizontalMarginLittleCards,
@@ -146,6 +147,7 @@ class Singleton {
 //insumos fijos proyecto 0
   static int idProyecto = 0;
   static int idProyecto1 = 1;
+
 
   List<InsumoFijo> insumosFijosProject = [
     InsumoFijo(
@@ -293,6 +295,58 @@ class Singleton {
       fechaOtorgada: DateTime(2023, 8, 1),
     ),
   ];
+
+List<InsumoVariable> insumosVariablesProject = [
+    InsumoVariable(
+      idProyecto: idProyecto,
+      nombre: 'Escoba',
+      cantidad: 5,
+      checked: false,
+      empresaProveedora: 'Empresa A',
+      fechaOtorgada: DateTime(2023, 3, 15),
+    ),
+    InsumoVariable(
+      idProyecto: idProyecto,
+      nombre: 'Gabacha',
+      cantidad: 7,
+      checked: false,
+      empresaProveedora: 'Empresa B',
+      fechaOtorgada: DateTime(2023, 4, 10),
+    ),
+    InsumoVariable(
+      idProyecto: idProyecto,
+      nombre: 'Pala',
+      cantidad: 4,
+      checked: false,
+      empresaProveedora: 'Empresa C',
+      fechaOtorgada: DateTime(2023, 2, 20),
+    ),
+    InsumoVariable(
+      idProyecto: idProyecto1,
+      nombre: 'Escoba',
+      cantidad: 3,
+      checked: false,
+      empresaProveedora: 'Empresa A',
+      fechaOtorgada: DateTime(2023, 3, 15),
+    ),
+    InsumoVariable(
+      idProyecto: idProyecto1,
+      nombre: 'Gabacha',
+      cantidad: 5,
+      checked: false,
+      empresaProveedora: 'Empresa B',
+      fechaOtorgada: DateTime(2023, 4, 10),
+    ),
+    InsumoVariable(
+      idProyecto: idProyecto1,
+      nombre: 'Pala',
+      cantidad: 2,
+      checked: false,
+      empresaProveedora: 'Empresa C',
+      fechaOtorgada: DateTime(2023, 2, 20),
+    ),
+  ];
+
 
 //*****************************************************************/
 //                Crear metodos generales
