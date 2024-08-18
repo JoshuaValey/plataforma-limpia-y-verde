@@ -1,3 +1,5 @@
+import 'package:plataforma_limpia_y_verde/singleton.dart';
+
 class InsumoVariable {
   final int idProyecto;
   final String nombre;
@@ -14,6 +16,21 @@ class InsumoVariable {
     required this.empresaProveedora,
     required this.fechaOtorgada,
   });
+
+@override
+  String toString() {
+    return
+      '''   
+          
+          Proyecto: 
+          ${Singleton.instance.proyectos[idProyecto].name}
+          Nombre: $nombre
+          Cantidad: $cantidad
+          Empresa Proveedora: $empresaProveedora
+          Fecha Otorgada: $fechaOtorgada
+          Estatus: ${checked ? 'Correcto' : 'Incorrecto'}
+      ''';
+  }
 
   // Método para crear una instancia de la clase a partir de un JSON
   factory InsumoVariable.fromJson(Map<String, dynamic> json) {

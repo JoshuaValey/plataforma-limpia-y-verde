@@ -1,3 +1,5 @@
+import 'package:plataforma_limpia_y_verde/singleton.dart';
+
 class Operario{
   final String dpi;
   final String nombre;
@@ -13,6 +15,20 @@ class Operario{
   final String estadoLaboral;
 int idProyectoActual;
 bool isChecked;
+
+@override
+String toString() => 
+  '''   
+      Proyecto Actual:
+      ${Singleton.instance.proyectos[idProyectoActual].name}   
+      DPI: $dpi
+      Nombre: $nombre
+      Rol: $rol
+      Empresa: $empresa
+      Estado Laboral: $estadoLaboral
+      Status:  ${isChecked ? 'Asistencia' : 'Inasistencia'} '
+      
+      ''';
 
   Operario({
     required this.dpi,

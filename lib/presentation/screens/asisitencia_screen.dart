@@ -13,15 +13,19 @@ class AsistenciaScreen extends StatefulWidget {
 class _AsistenciaScreenState extends State<AsistenciaScreen> {
   @override
   Widget build(BuildContext context) {
-  final projectID = ModalRoute.of(context)!.settings.arguments as int;
+    final projectID = ModalRoute.of(context)!.settings.arguments as int;
 
-List<Operario> operarios = Singleton.instance.operarios.where(
-  (element)=> element.idProyectoActual == projectID
-).toList();
-
+    List<Operario> operarios = Singleton.instance.operarios
+        .where((element) => element.idProyectoActual == projectID)
+        .toList();
 
     return Scaffold(
-      floatingActionButton: GreenButton(label: 'Grabar', onPressed: () {}), 
+      floatingActionButton: GreenButton(
+          label: 'Grabar',
+          onPressed: () {
+            Singleton.instance.operarioReporte = operarios;
+            Singleton.instance.showToast('Grabando asistencia');
+          }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(
         title: const Text('Asistencia'),
@@ -38,11 +42,10 @@ List<Operario> operarios = Singleton.instance.operarios.where(
                 Singleton.instance.showToast(operario.nombre);
               },
               child: ListTile(
-              
                 leading: const Icon(Icons.person),
                 title: Text(operario.nombre),
                 trailing: Checkbox(
-                  value:  operario.isChecked,
+                  value: operario.isChecked,
                   onChanged: (value) {
                     setState(() {
                       operarios[index].isChecked = value!;
@@ -53,7 +56,6 @@ List<Operario> operarios = Singleton.instance.operarios.where(
             );
           },
         ),
-        
       ),
     );
   }

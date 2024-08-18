@@ -9,6 +9,7 @@ import 'package:plataforma_limpia_y_verde/presentation/screens/main_screen.dart'
 import 'package:plataforma_limpia_y_verde/presentation/screens/proyectos_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/insumos_id_detalle_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/insumos_variables_screen.dart';
+import 'package:plataforma_limpia_y_verde/presentation/screens/reporte_screen.dart';
 
 
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/insumos_id_detalle_screen' : (context) =>  const InsumosIdDetalleScreen(),
         '/insumos_variables_screen' : (context) =>  const InsumosVariablesScreen(),
         '/asistencia_detalle_screen' : (context) =>  const AsistenciaDetalleScreen(),
+        '/reporte_screen' : (context) =>  const ReporteScreen(),
 
       },
       home: const LoginScreen(),

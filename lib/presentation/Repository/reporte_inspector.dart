@@ -8,15 +8,31 @@ class ReporteInspector{
   final String nombreInspector = 'Inspector de prueba';
  final List<InsumoVariable>? reporteInsumoVariable; 
  final List<InsumoFijo>? reporteInsumoFijo; 
- //final List<Operario>?  reporteOperario; 
+ final List<Operario>?  reporteOperario; 
 
  ReporteInspector({
   required this.idReporteInspector,
   required this.reporteInsumoVariable,
   required this.reporteInsumoFijo,
-  //required this.reporteOperario ,
+  required this.reporteOperario ,
  });
 
+@override
+String toString() {
+    return
+      '''   
+          Fecha: $fechaReporte
+            Nombre: $nombreInspector
+
+Insumos Variables: $reporteInsumoVariable
+
+Insumos Fijos: $reporteInsumoFijo
+
+Operarios: $reporteOperario
+      
+      ''';
+
+  }
 
 
 }

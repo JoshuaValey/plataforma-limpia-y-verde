@@ -76,8 +76,8 @@ class _ProyectosScreenState extends State<ProyectosScreen> {
                   },
                 ),
               ),
-              const SizedBox(height: 16),
-              GreenButton(label: 'Nuevo Proyecto', onPressed: () {})
+              const SizedBox(height: 50)
+              
             ],
           ),
         ),

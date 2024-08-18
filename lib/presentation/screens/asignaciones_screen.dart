@@ -18,6 +18,7 @@ class AsignacionesScreen extends StatelessWidget {
               idReporteInspector: proyectoID,
               reporteInsumoVariable: Singleton.instance.insumoVariableReporte,
               reporteInsumoFijo: Singleton.instance.insumoFijoReporte,
+              reporteOperario: Singleton.instance.operarioReporte,
             );
             Singleton.instance.reportes.add(reporte);
             Singleton.instance.showToast('Reporte enviado');
