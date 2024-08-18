@@ -23,6 +23,19 @@ class _InsumosIdScreenState extends State<InsumosIdScreen> {
       appBar: AppBar(
         title: const Text('Insumos con ID'),
       ),
+      floatingActionButton: ElevatedButton(
+       style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.green,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+       ), 
+        onPressed: (){
+
+      }, child: const Text('Guardar', style: TextStyle(fontSize: 20, color: Colors.white),),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      
       body: ListView.builder(
         itemCount: insumos.length,
         itemBuilder: (context, index) {

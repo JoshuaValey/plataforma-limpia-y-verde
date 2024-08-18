@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   fluttertoast: ^8.0.8 #toast solo con el fin de mostrar mensajes en pantalla de manera temporal. 
+  image_picker: ^1.1.2 #libreria para seleccionar imagenes de la galeria o tomar una foto.
 
 
   # The following adds the Cupertino Icons font to your application.
