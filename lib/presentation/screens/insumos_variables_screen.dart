@@ -22,24 +22,30 @@ class _InsumosVariablesScreenState extends State<InsumosVariablesScreen> {
       appBar: AppBar(
         title: const Text('Insumos variables'),
       ),
-      floatingActionButton: GreenButton(label: 'Guardar', onPressed:(){}),
+      floatingActionButton: GreenButton(
+          label: 'Guardar',
+          onPressed: () {
+            Singleton.instance.insumoVariableReporte = insumos;
+
+            Singleton.instance.showToast('Guardado');
+          }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView.builder(
         itemCount: insumos.length,
         itemBuilder: (context, index) {
           final insumo = insumos[index];
           return ListTile(
-              title: Text(insumo.nombre),
-              subtitle: Text("Cantidad: ${insumo.cantidad}"),
-              trailing: Checkbox(
-                value: insumo.checked,
-                onChanged: (bool? value) {
-                  // Maneja el cambio en el checkbox sin interferir con el clic del elemento
-                  setState(() {
-                    insumos[index].checked = value!;
-                  });
-                },
-              ),
+            title: Text(insumo.nombre),
+            subtitle: Text("Cantidad: ${insumo.cantidad}"),
+            trailing: Checkbox(
+              value: insumo.checked,
+              onChanged: (bool? value) {
+                // Maneja el cambio en el checkbox sin interferir con el clic del elemento
+                setState(() {
+                  insumos[index].checked = value!;
+                });
+              },
+            ),
           );
         },
       ),

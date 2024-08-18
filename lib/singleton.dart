@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variable.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte_inspector.dart';
 
 class Singleton {
   // Instancia única de la clase
@@ -28,8 +30,8 @@ class Singleton {
     },
     {
       'routeName': '/proyectos_screen',
-      'iconData': Icons.notification_important_outlined,
-      'label': 'Proyectos',
+      'iconData': Icons.list,
+      'label': 'Reportes',
       'horizontalMargin': horizontalMarginLittleCards,
       'verticalMargin': verticalMarginLittleCards,
     }
@@ -147,7 +149,6 @@ class Singleton {
 //insumos fijos proyecto 0
   static int idProyecto = 0;
   static int idProyecto1 = 1;
-
 
   List<InsumoFijo> insumosFijosProject = [
     InsumoFijo(
@@ -296,7 +297,7 @@ class Singleton {
     ),
   ];
 
-List<InsumoVariable> insumosVariablesProject = [
+  List<InsumoVariable> insumosVariablesProject = [
     InsumoVariable(
       idProyecto: idProyecto,
       nombre: 'Escoba',
@@ -348,6 +349,210 @@ List<InsumoVariable> insumosVariablesProject = [
   ];
 
 
+List<Operario> operarios = [
+  Operario(
+  dpi: "9876543210987",
+  nombre: "María López",
+  rol: "Encargado de proyecto",
+  telefono: "+50287654321",
+  contactoEmergencia: "+50211223344",
+  empresa: "CSA",
+  fechaNacimiento: DateTime.parse("1990-09-25"),
+  direccion: "Avenida Real 456, Zona 10, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2018-05-30"),
+  tipoLicencia: "Tipo B",
+  numeroLicencia: "9876543210987",
+  estadoLaboral: "Permanente",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "1234509876543",
+  nombre: "Luis García",
+  rol: "Encargado de proyecto",
+  telefono: "+50298765432",
+  contactoEmergencia: "+50222334455",
+  empresa: "ROVALLEGO",
+  fechaNacimiento: DateTime.parse("1982-07-19"),
+  direccion: "Residencial La Aurora 789, Zona 13, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2017-03-15"),
+  tipoLicencia: "Tipo A",
+  numeroLicencia: "1234509876543",
+  estadoLaboral: "Permanente",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "1111222233334",
+  nombre: "Juan Pérez",
+  rol: "Operador de limpieza",
+  telefono: "+50212345678",
+  contactoEmergencia: "+50287654321",
+  empresa: "COSEVISA",
+  fechaNacimiento: DateTime.parse("1985-04-12"),
+  direccion: "Calle Falsa 123, Zona 1, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2020-01-15"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "2222333344445",
+  nombre: "Carlos Martínez",
+  rol: "Operador de limpieza",
+  telefono: "+50211223344",
+  contactoEmergencia: "+50233445566",
+  empresa: "ROVALLEGO",
+  fechaNacimiento: DateTime.parse("1978-11-02"),
+  direccion: "Boulevard Principal 789, Zona 4, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2015-09-01"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Comodín",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "3333444455556",
+  nombre: "Ana Rodríguez",
+  rol: "Operador de limpieza",
+  telefono: "+50222334455",
+  contactoEmergencia: "+50244556677",
+  empresa: "CSA",
+  fechaNacimiento: DateTime.parse("1992-11-11"),
+  direccion: "Colonia Vista Hermosa 345, Zona 15, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2021-04-20"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "4444555566667",
+  nombre: "David Gómez",
+  rol: "Operador de limpieza",
+  telefono: "+50233445566",
+  contactoEmergencia: "+50255667788",
+  empresa: "COSEVISA",
+  fechaNacimiento: DateTime.parse("1987-03-05"),
+  direccion: "Avenida Las Américas 678, Zona 14, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2019-02-10"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "5555666677778",
+  nombre: "Laura Mejía",
+  rol: "Operador de limpieza",
+  telefono: "+50244556677",
+  contactoEmergencia: "+50266778899",
+  empresa: "CSA",
+  fechaNacimiento: DateTime.parse("1994-08-21"),
+  direccion: "Colonia Los Cipreses 901, Zona 6, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2022-07-12"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "6666777788889",
+  nombre: "Miguel Sánchez",
+  rol: "Operador de limpieza",
+  telefono: "+50255667788",
+  contactoEmergencia: "+50277889900",
+  empresa: "ROVALLEGO",
+  fechaNacimiento: DateTime.parse("1983-12-09"),
+  direccion: "Colonia Miraflores 234, Zona 11, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2016-08-18"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Comodín",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "7777888899990",
+  nombre: "Paola Ortiz",
+  rol: "Operador de limpieza",
+  telefono: "+50266778899",
+  contactoEmergencia: "+50288990011",
+  empresa: "COSEVISA",
+  fechaNacimiento: DateTime.parse("1989-06-14"),
+  direccion: "Calle Martí 123, Zona 2, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2018-12-03"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "8888999900001",
+  nombre: "Ricardo Flores",
+  rol: "Operador de limpieza",
+  telefono: "+50277889900",
+  contactoEmergencia: "+50299001122",
+  empresa: "CSA",
+  fechaNacimiento: DateTime.parse("1991-10-17"),
+  direccion: "Colonia Santa Marta 567, Zona 7, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2021-11-22"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "9999000011112",
+  nombre: "Gabriela Morales",
+  rol: "Operador de limpieza",
+  telefono: "+50288990011",
+  contactoEmergencia: "+50200112233",
+  empresa: "ROVALLEGO",
+  fechaNacimiento: DateTime.parse("1986-02-28"),
+  direccion: "Colonia El Roble 890, Zona 9, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2017-05-06"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+Operario(
+  dpi: "0000111122223",
+  nombre: "Francisco Ruiz",
+  rol: "Operador de limpieza",
+  telefono: "+50299001122",
+  contactoEmergencia: "+50211223344",
+  empresa: "COSEVISA",
+  fechaNacimiento: DateTime.parse("1988-01-01"),
+  direccion: "Calle Montúfar 321, Zona 12, Ciudad de Guatemala",
+  fechaInicioLabores: DateTime.parse("2022-09-27"),
+  tipoLicencia: "-",
+  numeroLicencia: "-",
+  estadoLaboral: "Tiempo completo",
+  idProyectoActual: idProyecto,
+  isChecked: false,
+),
+];
+
+
+
+//*****************************************************************/
+//                Reporte de Inspección
+  List<InsumoFijo>? insumoFijoReporte;
+  List<InsumoVariable>? insumoVariableReporte;
+  List<Operario>? operarioReporte;
+  List<ReporteInspector> reportes = [];
+
 //*****************************************************************/
 //                Crear metodos generales
 //*****************************************************************/
@@ -356,7 +561,7 @@ List<InsumoVariable> insumosVariablesProject = [
     Fluttertoast.showToast(
         msg: msg,
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
+        gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.grey,
         textColor: Colors.white,

@@ -26,7 +26,8 @@ class _InsumosIdScreenState extends State<InsumosIdScreen> {
       ),
       floatingActionButton: GreenButton(
         label: 'Guardar',
-        onPressed: (){
+        onPressed: () {
+          Singleton.instance.insumoFijoReporte = insumos;
           Singleton.instance.showToast('Guardado');
         },
       ),

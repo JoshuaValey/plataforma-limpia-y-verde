@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
+import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class AsistenciaScreen extends StatefulWidget {
   const AsistenciaScreen({super.key});
@@ -9,9 +11,15 @@ class AsistenciaScreen extends StatefulWidget {
 }
 
 class _AsistenciaScreenState extends State<AsistenciaScreen> {
-  final List<bool> _isChecked = List<bool>.filled(10, false);
   @override
   Widget build(BuildContext context) {
+  final projectID = ModalRoute.of(context)!.settings.arguments as int;
+
+List<Operario> operarios = Singleton.instance.operarios.where(
+  (element)=> element.idProyectoActual == projectID
+).toList();
+
+
     return Scaffold(
       floatingActionButton: GreenButton(label: 'Grabar', onPressed: () {}), 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -20,22 +28,32 @@ class _AsistenciaScreenState extends State<AsistenciaScreen> {
       ),
       body: SafeArea(
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: operarios.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('Nombre Usuario'),
-              trailing: Checkbox(
-                value:  _isChecked[index],
-                onChanged: (value) {
-                  setState(() {
-                    _isChecked[index] = value!;
-                  });
-                },
+            final operario = operarios[index];
+            return GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/asistencia_detalle_screen',
+                    arguments: operario);
+                Singleton.instance.showToast(operario.nombre);
+              },
+              child: ListTile(
+              
+                leading: const Icon(Icons.person),
+                title: Text(operario.nombre),
+                trailing: Checkbox(
+                  value:  operario.isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      operarios[index].isChecked = value!;
+                    });
+                  },
+                ),
               ),
             );
           },
         ),
+        
       ),
     );
   }

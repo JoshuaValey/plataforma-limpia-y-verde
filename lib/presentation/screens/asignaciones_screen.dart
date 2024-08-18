@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte_inspector.dart';
+import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/card_main_menu.dart';
 
@@ -6,17 +8,21 @@ class AsignacionesScreen extends StatelessWidget {
   const AsignacionesScreen({super.key});
   @override
   Widget build(BuildContext context) {
-     //argumentos de la ruta
+    //argumentos de la ruta
     final proyectoID = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/main_screen');
-        },
-        backgroundColor: Colors.green,
-        shape: const CircleBorder(),
-        child: const Icon(Icons.home, color: Colors.white),
-      ),
+      floatingActionButton: GreenButton(
+          label: 'Enviar Reporte',
+          onPressed: () {
+            ReporteInspector reporte = ReporteInspector(
+              idReporteInspector: proyectoID,
+              reporteInsumoVariable: Singleton.instance.insumoVariableReporte,
+              reporteInsumoFijo: Singleton.instance.insumoFijoReporte,
+            );
+            Singleton.instance.reportes.add(reporte);
+            Singleton.instance.showToast('Reporte enviado');
+          }),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(
         title: const Text('Asignaciones'),
       ),
@@ -36,9 +42,8 @@ class AsignacionesScreen extends StatelessWidget {
                 horizontalMargin: element['horizontalMargin'],
                 verticalMargin: element['verticalMargin'],
               );
-            }).toList()),            
+            }).toList()),
       ),
     );
   }
 }
-
