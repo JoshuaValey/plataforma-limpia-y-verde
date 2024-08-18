@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
+import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/project_card.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
@@ -11,40 +12,35 @@ class ProyectosScreen extends StatefulWidget {
 }
 
 class _ProyectosScreenState extends State<ProyectosScreen> {
+  List<Proyecto>? filterProyectos;
 
-List<Proyecto>? filterProyectos;
+  String query = "";
 
-String query = "";
-
-@override
-void initState() {
-   super.initState();
-   filterProyectos = Singleton.instance.proyectos;
+  @override
+  void initState() {
+    super.initState();
+    filterProyectos = Singleton.instance.proyectos;
   }
 
-void updateFilter(String query){
-  setState(() {
-  this.query = query;
+  void updateFilter(String query) {
+    setState(() {
+      this.query = query;
       filterProyectos = Singleton.instance.proyectos.where((proyecto) {
         return proyecto.name.toLowerCase().contains(query.toLowerCase()) ||
             proyecto.descripcion.toLowerCase().contains(query.toLowerCase());
       }).toList();
-  });
-}
-
-
-
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        
         onPressed: () {
           Navigator.pushNamed(context, '/main_screen');
         },
         backgroundColor: Colors.green,
-         shape: const CircleBorder(),
+        shape: const CircleBorder(),
         child: const Icon(Icons.home, color: Colors.white),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -57,7 +53,7 @@ void updateFilter(String query){
           child: Column(
             children: [
               TextField(
-                onChanged:  (value) => updateFilter(value),
+                onChanged: (value) => updateFilter(value),
                 decoration: InputDecoration(
                   hintText: 'Buscar',
                   prefixIcon: const Icon(Icons.search),
@@ -68,32 +64,20 @@ void updateFilter(String query){
               ),
               const SizedBox(height: 16),
               Expanded(
-                child:  ListView.builder(
-                    itemCount: filterProyectos!.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final proyecto = filterProyectos![index];
-                      return ProjectCard(
-                        id: proyecto.id,
-                        nombre: proyecto.name,
-                        descripcion: proyecto.descripcion,
-                      );
-                    },
+                child: ListView.builder(
+                  itemCount: filterProyectos!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final proyecto = filterProyectos![index];
+                    return ProjectCard(
+                      id: proyecto.id,
+                      nombre: proyecto.name,
+                      descripcion: proyecto.descripcion,
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 32.0, vertical: 16.0),
-                ),
-                child: const Text('Nuevo proyecto',
-                    style: TextStyle(color: Colors.white)),
-              ),
+              GreenButton(label: 'Nuevo Proyecto', onPressed: () {})
             ],
           ),
         ),
@@ -101,4 +85,3 @@ void updateFilter(String query){
     );
   }
 }
-

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
-
-
-
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,7 +9,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:const Text('Plataforma Limpia y Verde'),
+        title: const Text('Plataforma Limpia y Verde'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -37,7 +35,6 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-              
                   ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 400),
                     child: const TextField(
@@ -49,15 +46,12 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  ElevatedButton(
-                      //TODO: Implementar la lógica de autenticación
-                    onPressed: () {
-                      // navegar al main screen
-                      Singleton.instance.showToast('Bienvenido');
-                      Navigator.pushNamed(context, '/main_screen');
-                    },
-                    child:const Text('Iniciar Sesión'),
-                  ),
+                  GreenButton(
+                      label: 'Iniciar Sesión',
+                      onPressed: () {
+                        Singleton.instance.showToast('Bienvendio');
+                        Navigator.pushNamed(context, '/main_screen');
+                      })
                 ],
               ),
             ),

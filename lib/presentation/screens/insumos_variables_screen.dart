@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variable.dart';
+import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class InsumosVariablesScreen extends StatefulWidget {
@@ -21,6 +22,8 @@ class _InsumosVariablesScreenState extends State<InsumosVariablesScreen> {
       appBar: AppBar(
         title: const Text('Insumos variables'),
       ),
+      floatingActionButton: GreenButton(label: 'Guardar', onPressed:(){}),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView.builder(
         itemCount: insumos.length,
         itemBuilder: (context, index) {

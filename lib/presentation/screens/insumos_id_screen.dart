@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
+import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class InsumosIdScreen extends StatefulWidget {
@@ -23,19 +24,13 @@ class _InsumosIdScreenState extends State<InsumosIdScreen> {
       appBar: AppBar(
         title: const Text('Insumos con ID'),
       ),
-      floatingActionButton: ElevatedButton(
-       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.green,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-       ), 
+      floatingActionButton: GreenButton(
+        label: 'Guardar',
         onPressed: (){
-
-      }, child: const Text('Guardar', style: TextStyle(fontSize: 20, color: Colors.white),),
+          Singleton.instance.showToast('Guardado');
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      
       body: ListView.builder(
         itemCount: insumos.length,
         itemBuilder: (context, index) {
