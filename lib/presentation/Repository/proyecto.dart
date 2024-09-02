@@ -7,6 +7,8 @@ class Proyecto {
   final DateTime fechaInicio;
   final DateTime fechaFin;
   final bool vigente;
+  //jornada de proyecto
+  final String jornada;
 
   Proyecto(
       {required this.id,
@@ -16,7 +18,11 @@ class Proyecto {
       required this.empresa,
       required this.fechaInicio,
       required this.fechaFin,
-      required this.vigente});
+      required this.vigente,
+      required this.jornada
+      
+      
+      });
 
   // Método para crear una instancia de Proyecto a partir de un JSON
   factory Proyecto.fromJson(Map<String, dynamic> json) {
@@ -29,6 +35,7 @@ class Proyecto {
       fechaInicio: DateTime.parse(json['fechaInicio'] as String),
       fechaFin: DateTime.parse(json['fechaFin'] as String),
       vigente: json['vigente'] as bool,
+      jornada: json['jornada'] as String
     );
   }
 

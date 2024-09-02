@@ -45,30 +45,18 @@ class AsistenciaDetalleScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 8.0),
-                    Text(
-                      'DPI: ${operario.dpi}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Nombre: ${operario.nombre}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
                     Text(
                       'Rol: ${operario.rol}',
                       style: const TextStyle(fontSize: 16.0),
                     ),
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Teléfono: ${operario.telefono}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Contacto de Emergencia: ${operario.contactoEmergencia}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
                     Text(
                       'Empresa: ${operario.empresa}',
@@ -80,30 +68,18 @@ class AsistenciaDetalleScreen extends StatelessWidget {
                       style: const TextStyle(fontSize: 16.0),
                     ),
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Dirección: ${operario.direccion}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
                     Text(
                       'Fecha de Inicio de Labores: ${operario.fechaInicioLabores.toLocal().toString().split(' ')[0]}',
                       style: const TextStyle(fontSize: 16.0),
                     ),
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Tipo de Licencia: ${operario.tipoLicencia}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Número de Licencia: ${operario.numeroLicencia}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Estado Laboral: ${operario.estadoLaboral}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                   ],
                 ),
               ),

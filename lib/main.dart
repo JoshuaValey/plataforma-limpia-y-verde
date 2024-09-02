@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/config/theme/app_theme.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/aistencia_detalle_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/asignaciones_screen.dart';
 import 'package:plataforma_limpia_y_verde/presentation/screens/asisitencia_screen.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
+      theme: AppTheme(selectedColor: 0).theme(),
        initialRoute: '/',
       routes: {
         '/main_screen': (context) => const MainScreen(),

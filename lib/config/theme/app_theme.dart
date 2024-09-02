@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const Color _customColor = Color(0xFF00A86B);
+//Quiero declarar un color con rgb
+const Color _customColor = Color.fromARGB(255, 23, 178, 93);
 
 const List<Color> _colorThemes = <Color>[_customColor, Colors.black54];
 
@@ -15,7 +16,6 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorSchemeSeed: _colorThemes[selectedColor],
-      //brightness: Brightness.dark
     );
   }
 }

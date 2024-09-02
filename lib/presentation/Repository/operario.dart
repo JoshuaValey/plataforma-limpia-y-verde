@@ -1,85 +1,81 @@
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
-class Operario{
-  final String dpi;
-  final String nombre;
+class Operario {
+  final String id;
+  final String documentoIdentificacion;
+  final String nombres;
+  final String apellidos;
+  final String nacionalidad;
   final String rol;
-  final String telefono;
-  final String contactoEmergencia;
-  final String empresa;
+  final String sexo;
   final DateTime fechaNacimiento;
-  final String direccion;
   final DateTime fechaInicioLabores;
-  final String tipoLicencia;
-  final String numeroLicencia;
-  final String estadoLaboral;
-int idProyectoActual;
-bool isChecked;
+  final String jornada;
+  final String empresa;
+  int idProyectoActual;
+  bool? isChecked;
 
-@override
-String toString() => 
-  '''   
+  @override
+  String toString() =>
+      /*'''   
       Proyecto Actual:
       ${Singleton.instance.proyectos[idProyectoActual].name}   
       DPI: $dpi
-      Nombre: $nombre
+      Nombre: $nombres
       Rol: $rol
       Empresa: $empresa
-      Estado Laboral: $estadoLaboral
       Status:  ${isChecked ? 'Asistencia' : 'Inasistencia'} '
       
-      ''';
+      '''*/
+      '';
 
-  Operario({
-    required this.dpi,
-    required this.nombre,
-    required this.rol,
-    required this.telefono,
-    required this.contactoEmergencia,
-    required this.empresa,
-    required this.fechaNacimiento,
-    required this.direccion,
-    required this.fechaInicioLabores,
-    required this.tipoLicencia,
-    required this.numeroLicencia,
-    required this.estadoLaboral,
-    required this.idProyectoActual,
-    required this.isChecked
-  });
+  Operario(
+      {required this.id,
+      required this.jornada,
+      required this.nacionalidad,
+      required this.sexo,
+      required this.documentoIdentificacion,
+      required this.nombres,
+      required this.apellidos,
+      required this.rol,
+      required this.empresa,
+      required this.fechaNacimiento,
+      required this.fechaInicioLabores,
+      required this.idProyectoActual,
+      this.isChecked = false});
 
+// vuelve ha crear el meetodo fromjson
   factory Operario.fromJson(Map<String, dynamic> json) {
     return Operario(
-      dpi: json['dpi'],
-      nombre: json['nombre'],
-      rol: json['rol'],
-      telefono: json['telefono'],
-      contactoEmergencia: json['contacto_emergencia'],
-      empresa: json['empresa'],
-      fechaNacimiento: DateTime.parse(json['fecha_nacimiento']),
-      direccion: json['direccion'],
-      fechaInicioLabores: DateTime.parse(json['fecha_inicio_labores']),
-      tipoLicencia: json['tipo_licencia'],
-      numeroLicencia: json['numero_licencia'],
-      estadoLaboral: json['estado_laboral'],
-      idProyectoActual: json['id_proyecto_actual'],
-      isChecked: json['isChecked']
+      id: json['id'] as String,
+      documentoIdentificacion: json['documentoIdentificacion'] as String,
+      nombres: json['nombres'] as String,
+      apellidos: json['apellidos'] as String,
+      nacionalidad: json['nacionalidad'] as String,
+      rol: json['rol'] as String,
+      sexo: json['sexo'] as String,
+      fechaNacimiento: DateTime.parse(json['fecha_nacimiento'] as String),
+      fechaInicioLabores:
+          DateTime.parse(json['fecha_inicio_labores'] as String),
+      jornada: json['jornada'] as String,
+      empresa: json['empresa'] as String,
+      idProyectoActual: json['id_proyecto_actual'] as int,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'dpi': dpi,
-      'nombre': nombre,
+      'id': id,
+      'documentoIdentificacion': documentoIdentificacion,
+      'nombres': nombres,
+      'apellidos': apellidos,
+      'nacionalidad': nacionalidad,
       'rol': rol,
-      'telefono': telefono,
-      'contacto_emergencia': contactoEmergencia,
+      'sexo': sexo,
+      'jornada': jornada,
       'empresa': empresa,
       'fecha_nacimiento': fechaNacimiento.toIso8601String(),
-      'direccion': direccion,
       'fecha_inicio_labores': fechaInicioLabores.toIso8601String(),
-      'tipo_licencia': tipoLicencia,
-      'numero_licencia': numeroLicencia,
-      'estado_laboral': estadoLaboral,
       'id_proyecto_actual': idProyectoActual
     };
   }

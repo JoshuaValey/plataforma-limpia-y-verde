@@ -53,25 +53,16 @@ class InsumosIdDetalleScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Marca Fabricante: ${insumo.marcaFabricante}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
                     Text(
                       'Empresa: ${insumo.empresa}',
                       style: const TextStyle(fontSize: 16.0),
                     ),
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Identificador: ${insumo.identificacionPlaca}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                     const SizedBox(height: 8.0),
-                    Text(
-                      'Fecha Inicio: ${insumo.fechaOtorgada}',
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
+                    
                   ],
                 ),
               ),

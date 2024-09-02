@@ -39,11 +39,10 @@ class _AsistenciaScreenState extends State<AsistenciaScreen> {
               onTap: () {
                 Navigator.pushNamed(context, '/asistencia_detalle_screen',
                     arguments: operario);
-                Singleton.instance.showToast(operario.nombre);
               },
               child: ListTile(
                 leading: const Icon(Icons.person),
-                title: Text(operario.nombre),
+                title: Text(operario.nombres),
                 trailing: Checkbox(
                   value: operario.isChecked,
                   onChanged: (value) {

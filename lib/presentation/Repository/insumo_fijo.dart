@@ -1,62 +1,68 @@
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class InsumoFijo {
+  final String id ;
   final int idProyecto;
+  final String codigo;
   final String nombre;
-  final String marcaFabricante;
-  bool checked;
+  final String? numero;
+  final String? modelo;
+  final String? capacidad;
   final String empresa;
-  final String identificacionPlaca;
-  final DateTime fechaOtorgada;
+  final bool estado;
+  bool? checked;
 
   InsumoFijo({
+    required this.id,
     required this.idProyecto,
+    required this.codigo,
     required this.nombre,
-    required this.marcaFabricante,
-    required this.checked,
+    this.numero,
+    this.checked = false,
+    required this.modelo,
+    required this.capacidad,
     required this.empresa,
-    required this.identificacionPlaca,
-    required this.fechaOtorgada,
+    required this.estado,
   });
 
   @override
   String toString() {
     return '''
-
       Proyecto: ${Singleton.instance.proyectos[idProyecto].name}
       Insumo: $nombre
-      Marca: $marcaFabricante
       Empresa: $empresa
-      Placa: $identificacionPlaca
-      Fecha Otorgada: $fechaOtorgada
-      Status: ${checked ? 'Completo' : 'Incorrecto'}
-
 ''';
   }
 
   // Método para crear una instancia de la clase a partir de un JSON
   factory InsumoFijo.fromJson(Map<String, dynamic> json) {
     return InsumoFijo(
+      id: json['Id'] as String,
       idProyecto: json['Id_Proyecto'] as int,
+      codigo: json['Codigo'] as String,
       nombre: json['Nombre'] as String,
-      marcaFabricante: json['Marca_Fabricante'] as String,
-      checked: json['Checked'] as bool,
+      numero: json['Numero'] as String,
+      modelo: json['Modelo'] as String,
+      capacidad: json['Capacidad'] as String,
       empresa: json['Empresa'] as String,
-      identificacionPlaca: json['Identificacion_Placa'] as String,
-      fechaOtorgada: DateTime.parse(json['Fecha_Otorgada'] as String),
+      estado: json['Estado'] as bool,
     );
   }
 
   // Método para convertir la instancia de la clase a JSON
   Map<String, dynamic> toJson() {
     return {
+      'Id': id,
       'Id_Proyecto': idProyecto,
+      'Codigo': codigo,
       'Nombre': nombre,
-      'Marca_Fabricante': marcaFabricante,
-      'Checked': checked,
+      'Numero': numero,
+      'Modelo': modelo,
+      'Capacidad': capacidad,
       'Empresa': empresa,
-      'Identificacion_Placa': identificacionPlaca,
-      'Fecha_Otorgada': fechaOtorgada.toIso8601String(),
+      'Estado': estado,
+      'Checked': checked,
+
     };
   }
 }
