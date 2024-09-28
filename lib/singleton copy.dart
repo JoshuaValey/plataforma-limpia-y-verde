@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
@@ -17,22 +15,9 @@ class Singleton {
 
   // Método estático para acceder a la instancia
   static Singleton get instance => _instance;
-  
 
   //------------------------------------------------------------------
   static String idUsuario =  "66d4a66ceb6372d30dedfeea";
-  List<Proyecto>? proyectos; 
-
-   static List<Proyecto> getProyectos() {
-    // Si 'proyectos' es nulo, devolver una lista vacía
-    return instance.proyectos ?? [];
-  }
-
-  List<Operario>? operarios;
- static List<Operario> getOperarios() {
-    // Si 'proyectos' es nulo, devolver una lista vacía
-    return instance.operarios ?? [];
-  }
   //Crear menu de pagina "Inicio""
   static double horizontalMarginLittleCards = 10.0;
   static double verticalMarginLittleCards = 10.0;
@@ -106,11 +91,72 @@ class Singleton {
 //*****************************************************************/
   //------------------------------------------------------------------
 
-
+  List<Proyecto> proyectos = [
+    Proyecto(
+        id:"0",
+        name: "Proyecto 1 COSEVISA",
+        descripcion: "Descripción del proyecto 1",
+        areaCobertura: "Zona 1, desde 5ta Calle a 24 Calle",
+        empresa: "COSEVISA",
+        fechaInicio: DateTime(2024, 8, 1),
+        fechaFin: DateTime(2024, 8, 31),
+        jornada: 'diurna',
+        vigente: true),
+    Proyecto(
+        id: "1",
+        name: "Proyecto 2 SOLUCERSA",
+        descripcion: "Descripción del proyecto 2",
+        areaCobertura: "Zona 2, desde 1ra Avenida a 10ma Avenida",
+        empresa: "SOLUCERSA",
+        fechaInicio: DateTime(2024, 9, 1),
+        fechaFin: DateTime(2024, 9, 30),
+        jornada: 'diurna',
+        vigente: true),
+    Proyecto(
+        id: "2",
+        name: "Proyecto 3 SERVIMANT",
+        descripcion: "Descripción del proyecto 3",
+        areaCobertura: "Zona 3, desde 15 Avenida a 18 Avenida",
+        empresa: "SERVIMANT",
+        fechaInicio: DateTime(2024, 10, 1),
+        fechaFin: DateTime(2024, 10, 31),
+        jornada: 'diurna',
+        vigente: true),
+    Proyecto(
+        id: "3",
+        name: "Proyecto 4 MANTENIMIENTOS GT",
+        descripcion: "Descripción del proyecto 4",
+        areaCobertura: "Zona 4, desde 2da Calle a 8va Calle",
+        empresa: "MANTENIMIENTOS GT",
+        fechaInicio: DateTime(2024, 11, 1),
+        jornada: 'diurna',
+        fechaFin: DateTime(2024, 11, 30),
+        vigente: true),
+    Proyecto(
+        id: "4",
+        name: "Proyecto 5 PROSERVICIOS",
+        descripcion: "Descripción del proyecto 5",
+        areaCobertura: "Zona 5, desde 4ta Avenida a 12va Avenida",
+        jornada: 'diurna',
+        empresa: "PROSERVICIOS",
+        fechaInicio: DateTime(2024, 12, 1),
+        fechaFin: DateTime(2024, 12, 31),
+        vigente: true),
+    Proyecto(
+        id: "5",
+        name: "Proyecto 6 MANTENIMIENTO TOTAL",
+        descripcion: "Descripción del proyecto 6",
+        areaCobertura: "Zona 6, desde 9na Calle a 14 Calle",
+        jornada: 'diurna',
+        empresa: "MANTENIMIENTO TOTAL",
+        fechaInicio: DateTime(2025, 1, 1),
+        fechaFin: DateTime(2025, 1, 31),
+        vigente: true),
+  ];
 
 //insumos fijos proyecto 0
   static String idProyecto = '0';
-  static String  idProyecto1 = '1';
+  static  String  idProyecto1 = '1';
 
  // Lista de insumos fijos convertida al nuevo modelo de datos
 List<InsumoFijo> insumosFijosProject = [
@@ -316,7 +362,85 @@ List<InsumoVariable> insumosVariablesProject = [
   ),
 ];
 
-   
+   List<Operario> operarios = [
+  Operario(
+    id: "1",
+    documentoIdentificacion: "9876543210987",
+    nombres: "María",
+    apellidos: "López",
+    nacionalidad: "Guatemalteca", // Suponiendo nacionalidad
+    rol: "Encargado de proyecto",
+    sexo: "Femenino", // Suponiendo sexo
+    fechaNacimiento: DateTime.parse("1990-09-25"),
+    fechaInicioLabores: DateTime.parse("2018-05-30"),
+    jornada: "Tiempo completo", // Asumiendo jornada completa
+    empresa: "CSA",
+    idProyectoActual: idProyecto,
+    isChecked: false,
+  ),
+  Operario(
+    id: "2",
+    documentoIdentificacion: "1234509876543",
+    nombres: "Luis",
+    apellidos: "García",
+    nacionalidad: "Guatemalteca", // Suponiendo nacionalidad
+    rol: "Encargado de proyecto",
+    sexo: "Masculino", // Suponiendo sexo
+    fechaNacimiento: DateTime.parse("1982-07-19"),
+    fechaInicioLabores: DateTime.parse("2017-03-15"),
+    jornada: "Tiempo completo", // Asumiendo jornada completa
+    empresa: "ROVALLEGO",
+    idProyectoActual: idProyecto,
+    isChecked: false,
+  ),
+  Operario(
+    id: "3",
+    documentoIdentificacion: "1111222233334",
+    nombres: "Juan",
+    apellidos: "Pérez",
+    nacionalidad: "Guatemalteca", // Suponiendo nacionalidad
+    rol: "Operador de limpieza",
+    sexo: "Masculino", // Suponiendo sexo
+    fechaNacimiento: DateTime.parse("1985-04-12"),
+    fechaInicioLabores: DateTime.parse("2020-01-15"),
+    jornada: "Tiempo completo", // Asumiendo jornada completa
+    empresa: "COSEVISA",
+    idProyectoActual: idProyecto,
+    isChecked: false,
+  ),
+  Operario(
+    id: "4",
+    documentoIdentificacion: "2222333344445",
+    nombres: "Carlos",
+    apellidos: "Martínez",
+    nacionalidad: "Guatemalteca", // Suponiendo nacionalidad
+    rol: "Operador de limpieza",
+    sexo: "Masculino", // Suponiendo sexo
+    fechaNacimiento: DateTime.parse("1978-11-02"),
+    fechaInicioLabores: DateTime.parse("2015-09-01"),
+    jornada: "Comodín",
+    empresa: "ROVALLEGO",
+    idProyectoActual: idProyecto,
+    isChecked: false,
+  ),
+  Operario(
+    id: "5",
+    documentoIdentificacion: "3333444455556",
+    nombres: "Ana",
+    apellidos: "Rodríguez",
+    nacionalidad: "Guatemalteca", // Suponiendo nacionalidad
+    rol: "Operador de limpieza",
+    sexo: "Femenino", // Suponiendo sexo
+    fechaNacimiento: DateTime.parse("1992-11-11"),
+    fechaInicioLabores: DateTime.parse("2021-04-20"),
+    jornada: "Tiempo completo",
+    empresa: "CSA",
+    idProyectoActual: idProyecto,
+    isChecked: false,
+  ),
+  // Agrega el resto de los operarios de la misma manera...
+]; 
+
 //*****************************************************************/
 //                Reporte de Inspección
   List<InsumoFijo>? insumoFijoReporte;

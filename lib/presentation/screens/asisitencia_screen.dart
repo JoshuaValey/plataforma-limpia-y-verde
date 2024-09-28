@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/appi_service.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
@@ -13,11 +14,24 @@ class AsistenciaScreen extends StatefulWidget {
 class _AsistenciaScreenState extends State<AsistenciaScreen> {
   @override
   Widget build(BuildContext context) {
-    final projectID = ModalRoute.of(context)!.settings.arguments as int;
+    
+    final projectID = ModalRoute.of(context)!.settings.arguments as String;
 
-    List<Operario> operarios = Singleton.instance.operarios
-        .where((element) => element.idProyectoActual == projectID)
-        .toList();
+void postOperariosAsistencia() {
+      AppiService(url: "http://localhost:5012/operario")
+          .postOperarios(projectID)
+          .then((value) {
+        Singleton.instance.operarios = value;
+        print(value);
+      });
+    }
+    postOperariosAsistencia();
+    List<Operario>? operariosPost = Singleton.getOperarios();
+
+    List<Operario> operarios = operariosPost?.where((element) => element.idProyectoActual == projectID)
+        .toList() ?? [];
+
+    
 
     return Scaffold(
       floatingActionButton: GreenButton(

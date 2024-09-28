@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/appi_service.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
@@ -49,6 +50,12 @@ class LoginScreen extends StatelessWidget {
                   GreenButton(
                       label: 'Iniciar Sesión',
                       onPressed: () {
+                        AppiService(url: "http://localhost:5012/proyecto")
+                            .postProyectos(Singleton.idUsuario)
+                            .then((value) {
+                              Singleton.instance.proyectos = value;
+                          print(value);
+                        });
                         Singleton.instance.showToast('Bienvendio');
                         Navigator.pushNamed(context, '/main_screen');
                       })

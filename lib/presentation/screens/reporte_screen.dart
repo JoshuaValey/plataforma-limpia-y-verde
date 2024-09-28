@@ -18,7 +18,7 @@ class ReporteScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Center(
-          child: Text(Singleton.instance.reportes.toString()),
+          child: Text('Singleton.instance.reportes.toString()'),
         ),
       ),);
   }

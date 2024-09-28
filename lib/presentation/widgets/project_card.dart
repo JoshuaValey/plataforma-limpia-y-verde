@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 
 class ProjectCard extends StatelessWidget {
-  final int id;
-  final String nombre;
-  final String descripcion;
+  final String? id;
+  final String? nombre;
+  final String? descripcion;
 
   const ProjectCard(
       {required this.nombre,
@@ -34,12 +34,12 @@ class ProjectCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        nombre,
+                        nombre ?? '',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       const SizedBox(height: 8),
-                      Text(descripcion),
+                      Text(descripcion ?? ''),
                     ],
                   ),
                 ),

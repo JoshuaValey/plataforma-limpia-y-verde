@@ -1,5 +1,5 @@
 class Proyecto {
-  final int id;
+  final String id;
   final String name;
   final String descripcion;
   final String areaCobertura;
@@ -27,7 +27,7 @@ class Proyecto {
   // Método para crear una instancia de Proyecto a partir de un JSON
   factory Proyecto.fromJson(Map<String, dynamic> json) {
     return Proyecto(
-      id: json['id'] as int,
+      id: json['id'] as String,
       name: json['name'] as String,
       descripcion: json['descripcion'] as String,
       areaCobertura: json['areaCobertura'] as String,

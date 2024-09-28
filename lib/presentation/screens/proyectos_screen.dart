@@ -7,6 +7,7 @@ import 'package:plataforma_limpia_y_verde/singleton.dart';
 class ProyectosScreen extends StatefulWidget {
   const ProyectosScreen({super.key});
 
+
   @override
   State<ProyectosScreen> createState() => _ProyectosScreenState();
 }
@@ -16,19 +17,23 @@ class _ProyectosScreenState extends State<ProyectosScreen> {
 
   String query = "";
 
+  List<Proyecto>? proyectos;   
+
+
   @override
   void initState() {
     super.initState();
-    filterProyectos = Singleton.instance.proyectos;
+    proyectos = Singleton.getProyectos();
+    filterProyectos =  proyectos;
   }
 
   void updateFilter(String query) {
     setState(() {
       this.query = query;
-      filterProyectos = Singleton.instance.proyectos.where((proyecto) {
+      filterProyectos =  proyectos?.where((proyecto) {
         return proyecto.name.toLowerCase().contains(query.toLowerCase()) ||
             proyecto.descripcion.toLowerCase().contains(query.toLowerCase());
-      }).toList();
+      }).toList() ?? [];
     });
   }
 
@@ -65,13 +70,13 @@ class _ProyectosScreenState extends State<ProyectosScreen> {
               const SizedBox(height: 16),
               Expanded(
                 child: ListView.builder(
-                  itemCount: filterProyectos!.length,
+                  itemCount: filterProyectos?.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final proyecto = filterProyectos![index];
+         final proyecto = filterProyectos?[index];           
                     return ProjectCard(
-                      id: proyecto.id,
-                      nombre: proyecto.name,
-                      descripcion: proyecto.descripcion,
+                      id: proyecto?.id,
+                      nombre: proyecto?.name,
+                      descripcion: proyecto?.descripcion,
                     );
                   },
                 ),

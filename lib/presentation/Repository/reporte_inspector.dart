@@ -3,7 +3,7 @@ import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variabl
 import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
 
 class ReporteInspector{
-  final int idReporteInspector; // El id del repodrte del reporte del inspector sera el del proyecto. 
+  final String idReporteInspector; // El id del repodrte del reporte del inspector sera el del proyecto. 
   final DateTime fechaReporte = DateTime.now();
   final String nombreInspector = 'Inspector de prueba';
  final List<InsumoVariable>? reporteInsumoVariable; 

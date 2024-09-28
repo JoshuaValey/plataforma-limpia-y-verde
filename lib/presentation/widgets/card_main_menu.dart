@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class CardMainMenu extends StatelessWidget {
-  final int? id; // Identificador opcional para enviar id de elemento a otra pantalla. 
+  final String? id; // Identificador opcional para enviar id de elemento a otra pantalla. 
   final String routeName; // Ruta a la que navegar
   final IconData iconData; // Ícono a mostrar
   final String label; // Texto a mostrar

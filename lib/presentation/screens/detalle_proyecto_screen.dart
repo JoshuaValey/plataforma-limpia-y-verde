@@ -13,6 +13,7 @@ class DetalleProyectoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     //argumentos de la ruta
     final proyectoID = ModalRoute.of(context)!.settings.arguments as int;
+    final proyectos = Singleton.getProyectos();
     return Scaffold(
        floatingActionButton: FloatingActionButton(
         
@@ -44,24 +45,18 @@ class DetalleProyectoScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: const <Widget>[
             const SizedBox(height: 16),
-            _buildDetailField('Nombre', Singleton.instance.proyectos[proyectoID].name),
+            //_buildDetailField('Nombre', proyectos.name),
+            //_buildDetailField('Nombre', Singleton.instance.proyectos[proyectoID].name),
             const SizedBox(height: 16),
-            _buildDetailField('Área de cobertura', Singleton.instance.proyectos[proyectoID].areaCobertura),
+            //_buildDetailField('Área de cobertura', Singleton.instance.proyectos[proyectoID].areaCobertura),
             const SizedBox(height: 16),
-            _buildDetailField('Empresa',  Singleton.instance.proyectos[proyectoID].empresa),
+            //_buildDetailField('Empresa',  Singleton.instance.proyectos[proyectoID].empresa),
             const SizedBox(height: 16),
-            Row(
+           const  Row(
               children: <Widget>[
-                Expanded(
-                  child: _buildDetailField('Fecha inicio', Singleton.instance.proyectos[proyectoID].fechaInicio.toString()),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: _buildDetailField('Fecha fin', Singleton.instance.proyectos[proyectoID].fechaFin.toString()),
-                ),
-              ],
+                              ],
             ),
           ],
         ),

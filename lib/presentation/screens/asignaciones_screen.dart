@@ -9,7 +9,7 @@ class AsignacionesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //argumentos de la ruta
-    final proyectoID = ModalRoute.of(context)!.settings.arguments as int;
+    final proyectoID = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       floatingActionButton: GreenButton(
           label: 'Enviar Reporte',

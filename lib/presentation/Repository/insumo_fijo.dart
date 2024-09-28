@@ -2,7 +2,7 @@ import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class InsumoFijo {
   final String id ;
-  final int idProyecto;
+  final String idProyecto;
   final String codigo;
   final String nombre;
   final String? numero;
@@ -25,20 +25,13 @@ class InsumoFijo {
     required this.estado,
   });
 
-  @override
-  String toString() {
-    return '''
-      Proyecto: ${Singleton.instance.proyectos[idProyecto].name}
-      Insumo: $nombre
-      Empresa: $empresa
-''';
-  }
+  
 
   // Método para crear una instancia de la clase a partir de un JSON
   factory InsumoFijo.fromJson(Map<String, dynamic> json) {
     return InsumoFijo(
       id: json['Id'] as String,
-      idProyecto: json['Id_Proyecto'] as int,
+      idProyecto: json['Id_Proyecto'] as String,
       codigo: json['Codigo'] as String,
       nombre: json['Nombre'] as String,
       numero: json['Numero'] as String,

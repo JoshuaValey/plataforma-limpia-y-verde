@@ -12,7 +12,7 @@ class Operario {
   final DateTime fechaInicioLabores;
   final String jornada;
   final String empresa;
-  int idProyectoActual;
+  String idProyectoActual;
   bool? isChecked;
 
   @override
@@ -59,7 +59,7 @@ class Operario {
           DateTime.parse(json['fecha_inicio_labores'] as String),
       jornada: json['jornada'] as String,
       empresa: json['empresa'] as String,
-      idProyectoActual: json['id_proyecto_actual'] as int,
+      idProyectoActual: json['id_proyecto_actual'] as String,
     );
   }
 
