@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variable.dart';
@@ -7,52 +8,51 @@ import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart'
 
 class AppiService {
   final String url;
+  final _dio = Dio();
 
   AppiService({required this.url});
 
-Future<List<Proyecto>> postProyectos(String id) async {
-  final url = Uri.parse('${this.url}/listadolimitado');
-  final body = jsonEncode({"Id": id});
-  final response = await http.post(
-    url,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: body,
-  );
-  if (response.statusCode == 200) {
-
-    List<dynamic> body = jsonDecode(response.body);
-    List<Proyecto> proyectos =
-        body.map((dynamic item) => Proyecto.fromJson(item)).toList();
-
-    return proyectos;
-  } else {
-    throw Exception('Error al cargar los proyectos');
+  Future<List<Proyecto>> postProyectos(String id) async {
+    final url = '${this.url}/proyecto/listadolimitado';
+    try {
+      final response = await _dio.post(url,
+          data: jsonEncode({"Id": id}),
+          options: Options(headers: {
+            "Content-Type": "application/json",
+          }));
+      if (response.statusCode == 200) {
+        List<dynamic> body = response.data;
+        List<Proyecto> proyectos =
+            body.map((dynamic item) => Proyecto.fromJson(item)).toList();
+        return proyectos;
+      } else {
+        throw Exception('Error al cargar los proyectos');
+      }
+    } catch (e) {
+      throw Exception('Error al cargar los proyectos: $e');
+    }
   }
-}
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Future<List<Operario>> postOperarios(String idProyecto) async {
+    final url = Uri.parse('${this.url}/listado');
+    final body = jsonEncode({"Id": idProyecto});
+    final response = await http.post(
+      url,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: body,
+    );
+    if (response.statusCode == 200) {
+      List<dynamic> body = jsonDecode(response.body);
+      List<Operario> operarios =
+          body.map((dynamic item) => Operario.fromJson(item)).toList();
 
-Future<List<Operario>> postOperarios(String idProyecto) async {
-  final url = Uri.parse('${this.url}/listado');
-  final body = jsonEncode({"Id": idProyecto});
-  final response = await http.post(
-    url,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: body,
-  );
-  if (response.statusCode == 200) {
-
-    List<dynamic> body = jsonDecode(response.body);
-    List<Operario> operarios =
-        body.map((dynamic item) => Operario.fromJson(item)).toList();
-
-    return operarios;
-  } else {
-    throw Exception('Error al cargar los operarios');
+      return operarios;
+    } else {
+      throw Exception('Error al cargar los operarios');
+    }
   }
-}
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -1,39 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/appi_service.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
-import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/project_card.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class ProyectosScreen extends StatefulWidget {
   const ProyectosScreen({super.key});
 
-
   @override
   State<ProyectosScreen> createState() => _ProyectosScreenState();
 }
 
 class _ProyectosScreenState extends State<ProyectosScreen> {
+
+  AppiService service = AppiService(url: Singleton.linkApiService);
   List<Proyecto>? filterProyectos;
 
   String query = "";
 
-  List<Proyecto>? proyectos;   
-
+  List<Proyecto>? proyectos;
 
   @override
   void initState() {
     super.initState();
-    proyectos = Singleton.getProyectos();
-    filterProyectos =  proyectos;
+    filterProyectos = proyectos;
   }
 
   void updateFilter(String query) {
     setState(() {
       this.query = query;
-      filterProyectos =  proyectos?.where((proyecto) {
-        return proyecto.name.toLowerCase().contains(query.toLowerCase()) ||
-            proyecto.descripcion.toLowerCase().contains(query.toLowerCase());
-      }).toList() ?? [];
+      filterProyectos = proyectos?.where((proyecto) {
+            return proyecto.name.toLowerCase().contains(query.toLowerCase()) ||
+                proyecto.descripcion
+                    .toLowerCase()
+                    .contains(query.toLowerCase());
+          }).toList() ??
+          [];
     });
   }
 
@@ -69,20 +71,40 @@ class _ProyectosScreenState extends State<ProyectosScreen> {
               ),
               const SizedBox(height: 16),
               Expanded(
-                child: ListView.builder(
-                  itemCount: filterProyectos?.length,
-                  itemBuilder: (BuildContext context, int index) {
-         final proyecto = filterProyectos?[index];           
-                    return ProjectCard(
-                      id: proyecto?.id,
-                      nombre: proyecto?.name,
-                      descripcion: proyecto?.descripcion,
-                    );
+                child:FutureBuilder<List<Proyecto>>(
+                  future: service.postProyectos(Singleton.idUsuario), 
+                  builder: (context, snapshot){
+                    if(snapshot.connectionState == ConnectionState.waiting){
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    else if(snapshot.hasError){
+                      return Center(child: Text('Error: ${snapshot.error}'));
+                    }
+                    else if(!snapshot.hasData || snapshot.data!.isEmpty){
+                      return const Center(child: Text('No hay proyectos disponibles'));
+                    }
+                    else{
+                      final proyectosFuturos = snapshot.data!;
+                      return ListView.builder(
+
+                        itemCount: proyectosFuturos.length,
+                        itemBuilder: (BuildContext context, int index){
+                          final proyectCard = proyectosFuturos[index];
+                          return ProjectCard(
+                            id: proyectCard.id,
+                            nombre: proyectCard.name,
+                            descripcion: proyectCard.descripcion,
+                          );
+                        },
+
+                      );
+                    }
+
                   },
-                ),
-              ),
+                  )
+                
+                           ),
               const SizedBox(height: 50)
-              
             ],
           ),
         ),

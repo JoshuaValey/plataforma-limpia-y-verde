@@ -50,12 +50,6 @@ class LoginScreen extends StatelessWidget {
                   GreenButton(
                       label: 'Iniciar Sesión',
                       onPressed: () {
-                        AppiService(url: "http://localhost:5012/proyecto")
-                            .postProyectos(Singleton.idUsuario)
-                            .then((value) {
-                              Singleton.instance.proyectos = value;
-                          print(value);
-                        });
                         Singleton.instance.showToast('Bienvendio');
                         Navigator.pushNamed(context, '/main_screen');
                       })

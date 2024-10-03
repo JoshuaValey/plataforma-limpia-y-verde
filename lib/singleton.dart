@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
@@ -21,6 +19,7 @@ class Singleton {
 
   //------------------------------------------------------------------
   static String idUsuario =  "66d4a66ceb6372d30dedfeea";
+  static String linkApiService = "https://profound-vigorously-cobra.ngrok-free.app";
   List<Proyecto>? proyectos; 
 
    static List<Proyecto> getProyectos() {

@@ -33,7 +33,7 @@ dependencies:
   fluttertoast: ^8.0.8 #toast solo con el fin de mostrar mensajes en pantalla de manera temporal. 
   image_picker: ^1.1.2 #libreria para seleccionar imagenes de la galeria o tomar una foto.
   http: ^1.2.2 #libreria para realizar peticiones http.
-
+  dio: ^5.7.0 #libreria para realizar peticiones http.
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

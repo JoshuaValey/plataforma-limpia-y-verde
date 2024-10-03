@@ -1,4 +1,3 @@
-import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class Operario {
   final String id;
