@@ -4,6 +4,7 @@ import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart'
 import 'package:plataforma_limpia_y_verde/presentation/widgets/project_card.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
+
 class ProyectosScreen extends StatefulWidget {
   const ProyectosScreen({super.key});
 

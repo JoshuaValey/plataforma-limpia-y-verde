@@ -32,30 +32,35 @@ class AppiService {
       throw Exception('Error al cargar los proyectos: $e');
     }
   }
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Future<List<Operario>> postOperarios(String idProyecto) async {
-    final url = Uri.parse('${this.url}/listado');
-    final body = jsonEncode({"Id": idProyecto});
-    final response = await http.post(
-      url,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: body,
-    );
-    if (response.statusCode == 200) {
-      List<dynamic> body = jsonDecode(response.body);
-      List<Operario> operarios =
-          body.map((dynamic item) => Operario.fromJson(item)).toList();
 
-      return operarios;
-    } else {
-      throw Exception('Error al cargar los operarios');
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Método postOperarios usando Dio
+  Future<List<Operario>> postOperarios(String id) async {
+    final url = '${this.url}/operario/listado';
+    try {
+      final response = await _dio.post(url,
+          data: jsonEncode({"Id": id}),
+          options: Options(headers: {
+            "Content-Type": "application/json",
+          }));
+      if (response.statusCode == 200) {
+        List<dynamic> body = response.data;
+        List<Operario> operarios =
+            body.map((dynamic item) => Operario.fromJson(item)).toList();
+        return operarios;
+      } else {
+        throw Exception('Error al cargar los operarios');
+      }
+    } catch (e) {
+      throw Exception('Error al cargar los operarios: $e');
     }
   }
+}
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+/*
   //Metodo que devuelva un listado de personas.
   Future<List<Operario>> getOperarios() async {
     final response = await http.get(Uri.parse('$url/operarios'));
@@ -95,3 +100,4 @@ class AppiService {
     }
   }
 }
+*/

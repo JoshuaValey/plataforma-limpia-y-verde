@@ -19,6 +19,7 @@ class Singleton {
 
   //------------------------------------------------------------------
   static String idUsuario =  "66d4a66ceb6372d30dedfeea";
+  static String idProyectoTest = "66dcb79d0f09e001c4ad6a6c"; 
   static String linkApiService = "https://profound-vigorously-cobra.ngrok-free.app";
   List<Proyecto>? proyectos; 
 
