@@ -20,6 +20,9 @@ class AppiService {
           options: Options(headers: {
             "Content-Type": "application/json",
           }));
+
+
+
       if (response.statusCode == 200) {
         List<dynamic> body = response.data;
         List<Proyecto> proyectos =
@@ -57,7 +60,40 @@ class AppiService {
       throw Exception('Error al cargar los operarios: $e');
     }
   }
+
+
+Future<List<InsumoVariable>> postInsumosVariables(String id) async{
+ final url = '${this.url}/insumovariable/listado';
+try {
+  final response = await _dio.post(url,
+          data: jsonEncode({"Id": id}),
+          options: Options(headers: {
+            "Content-Type": "application/json",
+          }));
+      if (response.statusCode == 200) {
+        List<dynamic> body = response.data;
+        List<InsumoVariable> insumosVariables =
+            body.map((dynamic item) => InsumoVariable.fromJson(item)).toList();
+            // Filtrar los insumos variables por IdProyecto.
+            final filterInsumoVariables = insumosVariables.where((element) => element.idProyecto == id).toList();
+        return filterInsumoVariables;
+      } else {
+        throw Exception('Error al cargar los insumos variables');
+      }
+  
+} catch (e) {
+ throw Exception('Error al cargar los insumos variables: $e'); 
 }
+} 
+
+
+
+}
+
+
+
+
+
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
