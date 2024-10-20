@@ -86,14 +86,35 @@ try {
 }
 } 
 
-
+Future<List<InsumoFijo>> postInsumosFijos(String id) async{
+ final url = '${this.url}/insumofijo/listado';
+try {
+  final response = await _dio.post(url,
+          data: jsonEncode({"Id": id}),
+          options: Options(headers: {
+            "Content-Type": "application/json",
+          }));
+      if (response.statusCode == 200) {
+        List<dynamic> body = response.data;
+        List<InsumoFijo> insumosFijos =
+            body.map((dynamic item) => InsumoFijo.fromJson(item)).toList();
+            // Filtrar los insumos fijos por IdProyecto.
+            final filterInsumoFijos = insumosFijos.where((element) => element.idProyecto == id).toList();
+        return filterInsumoFijos;
+      } else {
+        throw Exception('Error al cargar los insumos fijos');
+      }
+      
+}
+ catch (e) {
+  throw Exception('Error al cargar los insumos fijos: $e');
+       }
 
 }
 
 
 
-
-
+}
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
