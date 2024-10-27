@@ -33,6 +33,7 @@ class _AsistenciaScreenState extends State<AsistenciaScreen> {
           label: 'Grabar',
           onPressed: () {
             //Singleton.instance.operarioReporte = operarios;
+            Singleton.setReporteOperario(operarios);
             Singleton.instance.showToast('Grabando asistencia');
           }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

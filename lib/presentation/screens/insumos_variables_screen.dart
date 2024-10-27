@@ -39,7 +39,7 @@ List<InsumoVariable>? insumosVariables;
           label: 'Guardar',
           onPressed: () {
             //Singleton.instance.insumoVariableReporte = insumos;
-
+            Singleton.setReporteInsumoVariable(insumosVariables);
             Singleton.instance.showToast('Guardado');
           }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

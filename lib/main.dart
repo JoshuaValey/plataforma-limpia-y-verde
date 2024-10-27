@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/proyectos_screen': (context) => const ProyectosScreen(),
         '/asistencia_screen': (context) => const AsistenciaScreen(),
         '/detalle_proyecto_screen': (context) => const DetalleProyectoScreen(),
-        '/asignaciones_screen': (context) => const AsignacionesScreen(),
+        '/asignaciones_screen': (context) => AsignacionesScreen(),
         '/insumos_id_screen' : (context) =>  const InsumosIdScreen(),
         '/insumos_id_detalle_screen' : (context) =>  const InsumosIdDetalleScreen(),
         '/insumos_variables_screen' : (context) =>  const InsumosVariablesScreen(),

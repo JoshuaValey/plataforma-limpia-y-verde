@@ -43,6 +43,7 @@ List<InsumoFijo>? insumosFijos;
         label: 'Guardar',
         onPressed: () {
           //Singleton.instance.insumoFijoReporte = insumos;
+          Singleton.setReporteInsumoFijo(insumosFijos);
           Singleton.instance.showToast('Guardado');
         },
       ),
