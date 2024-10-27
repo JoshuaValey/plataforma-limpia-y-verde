@@ -5,6 +5,8 @@ import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.da
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variable.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte.dart';
+import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class AppiService {
   final String url;
@@ -114,47 +116,38 @@ try {
 
 
 
-}
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-/*
-  //Metodo que devuelva un listado de personas.
-  Future<List<Operario>> getOperarios() async {
-    final response = await http.get(Uri.parse('$url/operarios'));
+Future<void> postReporte(Reporte reporte) async {
+  final url = '${this.url}/reporte/insertar';
+  try {
+    final response = await _dio.post(url,
+        data: jsonEncode({
+          "inspectorId": reporte.inspectorId,
+          "fecha_reporte": reporte.fechaReporte.toIso8601String(),
+          "proyectoId": reporte.proyectoId,
+          "empresa": reporte.empresa,
+          "url_img": reporte.urlImg,
+          "ubicacion": reporte.ubicacion,
+          "operarios": reporte.operarios.map((i) => i.toJson()).toList(),
+          "insumos_fijos": reporte.insumosFijos.map((i) => i.toJson()).toList(),
+          "insumos_variables": reporte.insumosVariables.map((i) => i.toJson()).toList(),
+        }),
+        options: Options(headers: {
+          "Content-Type": "application/json",
+        }));
     if (response.statusCode == 200) {
-      List<dynamic> body = jsonDecode(response.body);
-      List<Operario> operarios =
-          body.map((dynamic item) => Operario.fromJson(item)).toList();
-      return operarios;
+      Singleton.instance.showToast('Reporte enviado');
+      return;
     } else {
-      throw 'No se pueden cargar los operarios';
-    }
-  }
 
-  //Metodo que devuelva un listado de insumos sin ID.
-  Future<List<InsumoVariable>> getInsumos() async {
-    final response = await http.get(Uri.parse('$url/insumos'));
-    if (response.statusCode == 200) {
-      List<dynamic> body = jsonDecode(response.body);
-      List<InsumoVariable> insumosId =
-          body.map((dynamic item) => InsumoVariable.fromJson(item)).toList();
-      return insumosId;
-    } else {
-      throw 'No se pueden cargar los insumos';
+      Singleton.instance.showToast('Reporte Error');
     }
-  }
-
-  //Metodo que devuelva un listado de insumos con ID.
-  Future<List<InsumoFijo>> getInsumosId() async {
-    final response = await http.get(Uri.parse('$url/insumosid'));
-    if (response.statusCode == 200) {
-      List<dynamic> body = jsonDecode(response.body);
-      List<InsumoFijo> insumosId =
-          body.map((dynamic item) => InsumoFijo.fromJson(item)).toList();
-      return insumosId;
-    } else {
-      throw 'No se pueden cargar los insumos ID';
-    }
+  } catch (e) {
+    throw Exception('Error al crear el reporte: $e');
   }
 }
-*/
+
+
+
+
+}
+

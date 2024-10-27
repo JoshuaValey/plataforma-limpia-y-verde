@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:plataforma_limpia_y_verde/appi_service.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte_inspector.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/card_main_menu.dart';
 
 class AsignacionesScreen extends StatelessWidget {
-  const AsignacionesScreen({super.key});
+  AsignacionesScreen({super.key});
+
+
+  final AppiService service = AppiService(url: Singleton.linkApiService);
+
   @override
   Widget build(BuildContext context) {
     //argumentos de la ruta
@@ -14,14 +20,19 @@ class AsignacionesScreen extends StatelessWidget {
       floatingActionButton: GreenButton(
           label: 'Enviar Reporte',
           onPressed: () {
-            ReporteInspector reporte = ReporteInspector(
-              idReporteInspector: proyectoID,
-              reporteInsumoVariable: Singleton.instance.insumoVariableReporte,
-              reporteInsumoFijo: Singleton.instance.insumoFijoReporte,
-              reporteOperario: Singleton.instance.operarioReporte,
-            );
-            Singleton.instance.reportes.add(reporte);
-            Singleton.instance.showToast('Reporte enviado');
+             Reporte reporte = Reporte(
+              proyectoId: proyectoID,
+              inspectorId: Singleton.idUsuario,
+              fechaReporte: DateTime.now(),
+              insumosFijos: Singleton.reporteInsumoFijo,
+              insumosVariables: Singleton.reporteInsumoVariable,
+              operarios: Singleton.reporteOperario);
+
+          service.postReporte(reporte);
+
+          Singleton.disposeReporte();
+
+            
           }),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: AppBar(
