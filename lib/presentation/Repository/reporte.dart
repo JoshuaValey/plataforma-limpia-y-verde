@@ -1,4 +1,3 @@
-
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variable.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
@@ -11,9 +10,9 @@ class Reporte {
   String? empresa;
   String? urlImg;
   String? ubicacion;
-  List<OperarioReporte> operarios;
-  List<InsumoFijoReporte> insumosFijos;
-  List<InsumoVariableReporte> insumosVariables;
+  List<OperarioReporte>? operarios;
+  List<InsumoFijoReporte>? insumosFijos;
+  List<InsumoVariableReporte>? insumosVariables;
 
   Reporte({
     this.id,
@@ -23,9 +22,9 @@ class Reporte {
     this.empresa,
     this.urlImg,
     this.ubicacion,
-    required this.operarios,
-    required this.insumosFijos,
-    required this.insumosVariables,
+    this.operarios,
+    this.insumosFijos,
+    this.insumosVariables,
   });
 
   factory Reporte.fromJson(Map<String, dynamic> json) {
@@ -58,9 +57,9 @@ class Reporte {
       'empresa': empresa,
       'url_img': urlImg,
       'ubicacion': ubicacion,
-      'operarios': operarios.map((i) => i.toJson()).toList(),
-      'insumos_fijos': insumosFijos.map((i) => i.toJson()).toList(),
-      'insumos_variables': insumosVariables.map((i) => i.toJson()).toList(),
+      'operarios': operarios?.map((i) => i.toJson()).toList() ?? [],
+      'insumos_fijos': insumosFijos?.map((i) => i.toJson()).toList() ?? [],
+      'insumos_variables': insumosVariables?.map((i) => i.toJson()).toList() ?? [],
     };
   }
 }
@@ -182,14 +181,14 @@ class InsumoVariableReporte {
 }
 
 class ReporteFiltro {
-  DateTime fechaReporte;
-  String proyectoId;
-  String inspectorId;
+  DateTime? fechaReporte;
+  String? proyectoId;
+  String? inspectorId;
 
   ReporteFiltro({
-    required this.fechaReporte,
-    required this.proyectoId,
-    required this.inspectorId,
+    this.fechaReporte,
+    this.proyectoId,
+    this.inspectorId,
   });
 
   
@@ -204,7 +203,7 @@ class ReporteFiltro {
 
   Map<String, dynamic> toJson() {
     return {
-      'fecha_reporte': fechaReporte.toIso8601String(),
+      'fecha_reporte': fechaReporte?.toIso8601String(),
       'proyectoId': proyectoId,
       'inspectorId': inspectorId,
     };
