@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 
@@ -20,7 +21,16 @@ class ProjectCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, '/detalle_proyecto_screen', arguments: id);
+          //Navigator.pushNamed(context, '/detalle_proyecto_screen', arguments: id);
+          Fluttertoast.showToast(
+            msg: "Coming soon!!",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.black54,
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
         },
         child: Card(
           margin: const EdgeInsets.symmetric(vertical: 8.0),

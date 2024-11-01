@@ -122,14 +122,14 @@ Future<void> postReporte(Reporte reporte) async {
     final response = await _dio.post(url,
         data: jsonEncode({
           "inspectorId": reporte.inspectorId,
-          "fecha?": reporte.fechaReporte.toIso8601String(),
+          "fecha_reporte": reporte.fechaReporte.toIso8601String(),
           "proyectoId": reporte.proyectoId,
           "empresa": reporte.empresa,
           "url_img": reporte.urlImg,
           "ubicacion": reporte.ubicacion,
-          "Operarios": reporte.operarios?.map((i) => i.toJson()).toList(),
-          "InsumosFijos": reporte.insumosFijos?.map((i) => i.toJson()).toList(),
-          "InsumosVariables": reporte.insumosVariables?.map((i) => i.toJson()).toList(),
+          "operarios": reporte.operarios?.map((i) => i.toJson()).toList(),
+          "insumos_fijos": reporte.insumosFijos?.map((i) => i.toJson()).toList(),
+          "insumos_variables": reporte.insumosVariables?.map((i) => i.toJson()).toList(),
         }),
         options: Options(headers: {
           "Content-Type": "application/json",

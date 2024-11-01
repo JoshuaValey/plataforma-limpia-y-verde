@@ -7,9 +7,9 @@ class Reporte {
   DateTime fechaReporte;
   String inspectorId;
   String proyectoId;
-  String? empresa;
-  String? urlImg;
-  String? ubicacion;
+  String empresa;
+  String urlImg;
+  String ubicacion;
   List<OperarioReporte>? operarios;
   List<InsumoFijoReporte>? insumosFijos;
   List<InsumoVariableReporte>? insumosVariables;
@@ -19,9 +19,9 @@ class Reporte {
     required this.fechaReporte,
     required this.inspectorId,
     required this.proyectoId,
-    this.empresa,
-    this.urlImg,
-    this.ubicacion,
+    required this.empresa,
+    required this.urlImg,
+    required this.ubicacion,
     this.operarios,
     this.insumosFijos,
     this.insumosVariables,
