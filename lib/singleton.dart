@@ -73,7 +73,7 @@ static void disposeReporte() {
       'horizontalMargin': horizontalMarginLittleCards,
       'verticalMargin': verticalMarginLittleCards,
     },
-    {
+   {
       'routeName': '/proyectos_screen',
       'iconData': Icons.inventory_sharp,
       'label': 'Proyectos',
@@ -150,6 +150,17 @@ static void disposeReporte() {
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.grey,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
+void showToastWarning(String msg) {
+    Fluttertoast.showToast(
+        msg: msg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0);
   }

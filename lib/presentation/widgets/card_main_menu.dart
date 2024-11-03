@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:fluttertoast/fluttertoast.dart';
 
 class CardMainMenu extends StatelessWidget {
-  final String? id; // Identificador opcional para enviar id de elemento a otra pantalla. 
+  final String?
+      id; // Identificador opcional para enviar id de elemento a otra pantalla.
   final String routeName; // Ruta a la que navegar
   final IconData iconData; // Ícono a mostrar
   final String label; // Texto a mostrar
@@ -22,38 +22,45 @@ class CardMainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: horizontalMargin, vertical: verticalMargin),
-        child: InkWell(
-          onTap: () {
-            // Navegar a la pantalla indicada
+      margin: EdgeInsets.symmetric(
+          horizontal: horizontalMargin, vertical: verticalMargin),
+      child: InkWell(
+        onTap: () {
+          // Navegar a la pantalla indicada
+          if (routeName == '/reporte_screen') {
+            Fluttertoast.showToast(
+              msg: "Coming soon!!",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+            );
+          } else {
             Navigator.pushNamed(context, routeName, arguments: id);
-          },
-          child: Card(
-            elevation: 10.0,
-            margin: const EdgeInsets.all(0),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(iconData,
-                      size: 80, color: Colors.black), // Ícono proporcionado
-                  const SizedBox(
-                      height: 10), // Espacio entre el ícono y el texto
-                  Text(
-                    label,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ), // Texto proporcionado
-                ],
-              ),
+          }
+        },
+        child: Card(
+          elevation: 10.0,
+          margin: const EdgeInsets.all(0),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(iconData,
+                    size: 80, color: Colors.black), // Ícono proporcionado
+                const SizedBox(height: 10), // Espacio entre el ícono y el texto
+                Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ), // Texto proporcionado
+              ],
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 }

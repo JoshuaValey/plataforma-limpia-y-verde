@@ -24,7 +24,14 @@ class _ProyectosScreenState extends State<ProyectosScreen> {
   @override
   void initState() {
     super.initState();
-    filterProyectos = proyectos;
+    loadProyectos();
+  }
+
+ Future<void> loadProyectos() async {
+    proyectos = await service.postProyectos(Singleton.idUsuario);
+    setState(() {
+      filterProyectos = proyectos;
+    });
   }
 
   void updateFilter(String query) {
@@ -72,37 +79,21 @@ class _ProyectosScreenState extends State<ProyectosScreen> {
               ),
               const SizedBox(height: 16),
               Expanded(
-                child:FutureBuilder<List<Proyecto>>(
-                  future: service.postProyectos(Singleton.idUsuario), 
-                  builder: (context, snapshot){
-                    if(snapshot.connectionState == ConnectionState.waiting){
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                    else if(snapshot.hasError){
-                      return Center(child: Text('Error: ${snapshot.error}'));
-                    }
-                    else if(!snapshot.hasData || snapshot.data!.isEmpty){
-                      return const Center(child: Text('No hay proyectos disponibles'));
-                    }
-                    else{
-                      final proyectosFuturos = snapshot.data!;
-                      return ListView.builder(
-
-                        itemCount: proyectosFuturos.length,
-                        itemBuilder: (BuildContext context, int index){
-                          final proyectCard = proyectosFuturos[index];
-                          return ProjectCard(
-                            id: proyectCard.id,
-                            nombre: proyectCard.name,
-                            descripcion: proyectCard.descripcion,
-                          );
-                        },
-
-                      );
-                    }
-
-                  },
-                  )
+                child:filterProyectos == null
+      ? const Center(child: CircularProgressIndicator())
+      : filterProyectos!.isEmpty
+          ? const Center(child: Text('No hay proyectos disponibles'))
+          : ListView.builder(
+              itemCount: filterProyectos!.length,
+              itemBuilder: (BuildContext context, int index) {
+                final proyectCard = filterProyectos![index];
+                return ProjectCard(
+                  id: proyectCard.id,
+                  nombre: proyectCard.name,
+                  descripcion: proyectCard.descripcion,
+                );
+              },
+            ),
                 
                            ),
               const SizedBox(height: 50)
