@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-
-
+import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
 
 class ProjectCard extends StatelessWidget {
-  final String? id;
-  final String? nombre;
-  final String? descripcion;
+  final Proyecto proyecto;
 
-  const ProjectCard(
-      {required this.nombre,
-      required this.descripcion,
-      super.key,
-      required this.id});
+  const ProjectCard({
+    required this.proyecto,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +16,10 @@ class ProjectCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
       child: InkWell(
         onTap: () {
-          //Navigator.pushNamed(context, '/detalle_proyecto_screen', arguments: id);
-          Fluttertoast.showToast(
-            msg: "Coming soon!!",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.black54,
-            textColor: Colors.white,
-            fontSize: 16.0,
-          );
+          //navegar a la pantalla de asingaciones
+          Navigator.pushNamed(context, '/asignaciones_screen',
+              arguments: proyecto.id);
+         
         },
         child: Card(
           margin: const EdgeInsets.symmetric(vertical: 8.0),
@@ -44,12 +33,12 @@ class ProjectCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        nombre ?? '',
+                        proyecto.name,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       const SizedBox(height: 8),
-                      Text(descripcion ?? ''),
+                      Text(proyecto.descripcion),
                     ],
                   ),
                 ),
@@ -59,8 +48,8 @@ class ProjectCard extends StatelessWidget {
                       icon: const Icon(Icons.menu),
                       color: const Color.fromARGB(255, 57, 220, 95),
                       onPressed: () {
-                        //navegar a la pantalla de asingaciones
-                        Navigator.pushNamed(context, '/asignaciones_screen', arguments: id);
+                        Navigator.pushNamed(context, '/detalle_proyecto_screen',
+                            arguments: proyecto);
                       },
                     ),
                   ],

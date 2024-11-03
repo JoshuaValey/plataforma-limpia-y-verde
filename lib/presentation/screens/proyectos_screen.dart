@@ -88,9 +88,7 @@ class _ProyectosScreenState extends State<ProyectosScreen> {
               itemBuilder: (BuildContext context, int index) {
                 final proyectCard = filterProyectos![index];
                 return ProjectCard(
-                  id: proyectCard.id,
-                  nombre: proyectCard.name,
-                  descripcion: proyectCard.descripcion,
+                  proyecto: proyectCard,
                 );
               },
             ),

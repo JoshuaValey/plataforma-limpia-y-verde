@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:plataforma_limpia_y_verde/singleton.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
 
 
 
@@ -12,8 +12,7 @@ class DetalleProyectoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //argumentos de la ruta
-    final proyectoID = ModalRoute.of(context)!.settings.arguments as int;
-    final proyectos = Singleton.getProyectos();
+    final  proyect = ModalRoute.of(context)!.settings.arguments as Proyecto;
     return Scaffold(
        floatingActionButton: FloatingActionButton(
         
@@ -45,14 +44,13 @@ class DetalleProyectoScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const <Widget>[
+          children: <Widget>[
             const SizedBox(height: 16),
-            //_buildDetailField('Nombre', proyectos.name),
-            //_buildDetailField('Nombre', Singleton.instance.proyectos[proyectoID].name),
+            _buildDetailField('Nombre', proyect.name),
             const SizedBox(height: 16),
-            //_buildDetailField('Área de cobertura', Singleton.instance.proyectos[proyectoID].areaCobertura),
+            _buildDetailField('Área de cobertura', proyect.areaCobertura),
             const SizedBox(height: 16),
-            //_buildDetailField('Empresa',  Singleton.instance.proyectos[proyectoID].empresa),
+            _buildDetailField('Empresa',  proyect.empresa),
             const SizedBox(height: 16),
            const  Row(
               children: <Widget>[
