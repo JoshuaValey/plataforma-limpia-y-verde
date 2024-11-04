@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
 
 class ProjectCard extends StatelessWidget {

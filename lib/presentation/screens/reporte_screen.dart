@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 
 
@@ -16,7 +15,7 @@ class ReporteScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Reporte'),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Center(
           child: Text('Singleton.instance.reportes.toString()'),
         ),

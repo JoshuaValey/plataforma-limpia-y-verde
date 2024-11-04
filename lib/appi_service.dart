@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_fijo.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variable.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
