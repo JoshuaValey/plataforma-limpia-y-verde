@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:plataforma_limpia_y_verde/appi_service.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte.dart';
-import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte_inspector.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/card_main_menu.dart';

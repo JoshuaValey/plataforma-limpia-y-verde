@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plataforma_limpia_y_verde/appi_service.dart';
 import 'package:plataforma_limpia_y_verde/presentation/widgets/green_button.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
