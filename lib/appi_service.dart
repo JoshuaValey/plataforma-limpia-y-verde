@@ -87,6 +87,31 @@ try {
 }
 } 
 
+Future<bool> attemptLogin(String usuario, String password) async {
+    final url = '${this.url}/usuario/iniciarsesion';
+
+    try {
+      final response = await _dio.post(
+        url,
+        data: json.encode({"Nombre_Usuario": usuario, "Contrasenia": password}),
+        options: Options(
+          headers: {
+            "Content-Type": "application/json",
+          },
+        ),
+      );
+
+      if (response.statusCode == 200) {
+        return true;
+      } else {
+        return false;
+      }
+    } on PlatformException catch (e) {
+      print(e.message);
+      return false;
+    }
+  }
+
 Future<List<InsumoFijo>> postInsumosFijos(String id) async{
  final url = '${this.url}/insumofijo/listado';
 try {
