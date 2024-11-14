@@ -12,7 +12,7 @@ class MainScreen extends StatelessWidget {
       ),
       body: Center(
         child: GridView.count(
-            crossAxisCount: 2,
+            crossAxisCount: 1,
             crossAxisSpacing: 8,
             mainAxisSpacing: 8,
             physics: const NeverScrollableScrollPhysics(),

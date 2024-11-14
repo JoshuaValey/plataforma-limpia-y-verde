@@ -66,13 +66,13 @@ static void disposeReporte() {
   static double horizontalMarginLittleCards = 10.0;
   static double verticalMarginLittleCards = 10.0;
   List<Map<String, dynamic>> menuItems = [
-    {
+    /*{
       'routeName': '/reporte_screen',
       'iconData': Icons.list,
       'label': 'Reportes',
       'horizontalMargin': horizontalMarginLittleCards,
       'verticalMargin': verticalMarginLittleCards,
-    },
+    },*/
    {
       'routeName': '/proyectos_screen',
       'iconData': Icons.inventory_sharp,
