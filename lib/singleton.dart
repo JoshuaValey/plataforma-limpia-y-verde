@@ -18,7 +18,7 @@ class Singleton {
   static Singleton get instance => _instance;
 
   //------------------------------------------------------------------
-  static String idUsuario = "66d4a66ceb6372d30dedfeea";
+  static String idUsuario = "";
   static String idProyectoTest = "66dcb79d0f09e001c4ad6a6c";
   static String linkApiService =
       "https://serviciolimpiaverde-bjb2c2g2a3gggggv.canadacentral-01.azurewebsites.net";

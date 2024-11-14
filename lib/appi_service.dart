@@ -5,6 +5,7 @@ import 'package:plataforma_limpia_y_verde/presentation/Repository/insumo_variabl
 import 'package:plataforma_limpia_y_verde/presentation/Repository/operario.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/proyecto.dart';
 import 'package:plataforma_limpia_y_verde/presentation/Repository/reporte.dart';
+import 'package:plataforma_limpia_y_verde/presentation/Repository/usuario.dart';
 import 'package:plataforma_limpia_y_verde/singleton.dart';
 
 class AppiService {
@@ -145,6 +146,27 @@ Future<void> postReporte(Reporte reporte) async {
   }
 }
 
+Future<Usuario> login(
+      Usuario data, String enpointRoute) async {
+    try {
+      final response = await _dio.post(url + enpointRoute,
+          data: data,
+          options: Options(headers: {
+            "Content-Type": "application/json",
+          }));
+
+      if (response.statusCode == 200) {
+        dynamic body = response.data;
+        Usuario usuario = Usuario.fromJson(body); //body.map((dynamic item) => Usuario.fromJson(item));
+            
+        return usuario;
+      } else {
+        throw Exception('Error al recibir el usuario');
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 
 
 
