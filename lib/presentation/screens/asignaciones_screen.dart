@@ -44,10 +44,10 @@ class AsignacionesScreen extends StatelessWidget {
                 insumosFijos: Singleton.reporteInsumoFijo,
                 insumosVariables: Singleton.reporteInsumoVariable,
                 operarios: Singleton.reporteOperario,
-                empresa: 'Solucersa',
+                empresa: 'ROVALLEGO',
                 urlImg:
                     'https://i.etsystatic.com/34133108/r/il/a64f48/3961355950/il_fullxfull.3961355950_k15t.jpg',
-                ubicacion: 'Calle 13 # 12-34');
+                ubicacion: '21 Calle 6-77 Zona 1, Centro Cívico, Palacio Municipal');
 
 
               service.postReporte(reporte);
